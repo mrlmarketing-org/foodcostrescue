@@ -19,7 +19,7 @@ export default function AboutUs() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <img src={images.about1} alt="Workers unloading crates of fresh produce from a delivery truck" className={styles.img1} />
-          <img src={images.about2} alt="Analytics dashboard showing pricing and volume trends" className={styles.img2} />
+          <img src={images.about2} alt="Our team reviewing invoice data together" className={styles.img2} />
         </motion.div>
 
         <motion.div

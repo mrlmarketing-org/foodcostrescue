@@ -9,6 +9,8 @@ const iconMap = {
   partners: IconPartners,
 };
 
+const accents = ["coral", "mint", "sky"];
+
 export default function WhyUs() {
   return (
     <section className={`section ${styles.section}`}>
@@ -22,12 +24,12 @@ export default function WhyUs() {
         >
           <div className={styles.head}>
             <span className="eyebrow">{whyUs.kicker}</span>
-            <h2>{whyUs.headline}</h2>
           </div>
 
           <div className={styles.grid}>
             {whyUs.pillars.map((pillar, i) => {
               const Icon = iconMap[pillar.icon];
+              const accent = accents[i % accents.length];
               return (
                 <motion.div
                   key={pillar.title}
@@ -37,7 +39,7 @@ export default function WhyUs() {
                   viewport={{ once: false, amount: 0.4 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <span className={styles.icon}>
+                  <span className={`${styles.icon} ${styles[accent]}`}>
                     <Icon size={26} />
                   </span>
                   <h3 className={styles.title}>{pillar.title}</h3>

@@ -218,7 +218,6 @@ export const guarantee = {
 
 export const whyUs = {
   kicker: "Why us",
-  headline: "Why foodcostrescue",
   pillars: [
     {
       title: "We know what distributor pricing should actually look like.",

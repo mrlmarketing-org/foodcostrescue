@@ -11,6 +11,8 @@ const iconMap = {
   shield: IconShield,
 };
 
+const accents = ["coral", "mint", "sky", "mint", "coral"];
+
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className={`section ${styles.section}`}>
@@ -29,6 +31,7 @@ export default function HowItWorks() {
         <div className={styles.timeline}>
           {howItWorks.steps.map((step, i) => {
             const Icon = iconMap[step.icon];
+            const accent = accents[i % accents.length];
             return (
               <motion.div
                 key={step.title}
@@ -38,7 +41,7 @@ export default function HowItWorks() {
                 viewport={{ once: false, amount: 0.4 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <div className={styles.node}>
+                <div className={`${styles.node} ${styles[accent]}`}>
                   <Icon size={24} className={styles.icon} />
                   <span className={styles.step_num}>{i + 1}</span>
                 </div>

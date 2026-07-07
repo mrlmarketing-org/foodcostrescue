@@ -1,4 +1,5 @@
 import heroFood from "./hero-food.jpg";
+import heroIngredients from "./hero-ingredients.jpg";
 import auditProteins from "./audit-proteins.jpg";
 import auditDryGoods from "./audit-drygoods.jpg";
 import auditContracts from "./audit-contracts.jpg";
@@ -14,6 +15,7 @@ import guaranteeRefund from "./guarantee-refund.jpg";
 
 export const images = {
   heroFood,
+  heroIngredients,
   proteins: auditProteins,
   dryGoods: auditDryGoods,
   contracts: auditContracts,

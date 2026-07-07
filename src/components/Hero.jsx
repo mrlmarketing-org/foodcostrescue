@@ -1,13 +1,43 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { hero } from "../data/content.js";
 import { images } from "../assets/images/index.js";
 import BookCallButton from "./BookCallButton.jsx";
 import styles from "./Hero.module.css";
 
+const SLIDE_MS = 2800;
+
+const slides = [
+  { src: images.heroFood, alt: "A plated, ready-to-serve dish" },
+  { src: images.heroIngredients, alt: "Raw ingredients ready for prep" },
+  { src: images.invoice, alt: "Reviewing a supplier invoice with a calculator" },
+  { src: images.surcharges, alt: "A delivery truck en route" },
+];
+
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, SLIDE_MS);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="top" className={styles.hero}>
-      <img src={images.heroFood} alt="Fresh ingredients laid out for a restaurant kitchen" className={styles.bgPhoto} />
+      <AnimatePresence initial={false}>
+        <motion.img
+          key={index}
+          src={slides[index].src}
+          alt={slides[index].alt}
+          className={styles.bgPhoto}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
       <div className={styles.scrim} />
 
       <div className={`container ${styles.inner}`}>

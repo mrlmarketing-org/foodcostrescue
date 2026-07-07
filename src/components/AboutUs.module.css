@@ -165,8 +165,8 @@
 .callout {
   max-width: 640px;
   width: 100%;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--coral-tint), var(--sky-tint));
+  border: 1px solid var(--coral);
   border-radius: var(--radius-md);
   padding: 30px 34px;
   box-shadow: var(--shadow-soft);
@@ -174,7 +174,8 @@
 }
 
 .calloutBody {
-  color: var(--ink-soft);
+  color: var(--coral-deep);
+  font-weight: 600;
   font-size: 15.5px;
   line-height: 1.65;
 }

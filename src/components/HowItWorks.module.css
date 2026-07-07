@@ -57,8 +57,6 @@
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: var(--paper);
-  border: 1.5px solid var(--line);
   box-shadow: var(--shadow-soft);
   display: flex;
   align-items: center;
@@ -66,8 +64,17 @@
   margin-bottom: 6px;
 }
 
-.icon {
+.node.coral {
+  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 75%);
   color: var(--coral-deep);
+}
+.node.mint {
+  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 75%);
+  color: var(--mint-deep);
+}
+.node.sky {
+  background: linear-gradient(160deg, var(--sky-tint), var(--paper) 75%);
+  color: var(--sky-deep);
 }
 
 .step_num {
@@ -77,8 +84,8 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--coral);
-  color: #402413;
+  background: var(--ink);
+  color: var(--paper);
   font-size: 12px;
   font-weight: 800;
   display: flex;
