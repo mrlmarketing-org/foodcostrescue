@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import BlogIndexPage from "./pages/BlogIndexPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import GuaranteeDetailPage from "./pages/GuaranteeDetailPage.jsx";
+import PricingHowItWorksPage from "./pages/PricingHowItWorksPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import LegalPage from "./pages/LegalPage.jsx";
 import { terms, privacy } from "./data/legal.js";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/guarantee/:slug" element={<GuaranteeDetailPage />} />
+        <Route path="/pricing/how-it-works" element={<PricingHowItWorksPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<LegalPage doc={terms} />} />
         <Route path="/privacy" element={<LegalPage doc={privacy} />} />

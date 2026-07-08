@@ -146,12 +146,18 @@ export const howItWorks = {
 export const pricing = {
   kicker: "Pricing",
   headline: "A small audit fee to get started. The rest is only paid if we save you money.",
-  intro:
-    "We charge a flat, one-time fee to audit your invoices. That fee pays for a concrete deliverable: a full written report benchmarking every line item against fair market pricing and flagging every contract violation we find — yours to keep, whether the distributor agrees to fix anything. If we do get savings — a credit or a corrected rate — that audit fee is credited against our % fee, so you're not paying twice. The % fee only applies when we actually recover something.",
+  intro: [
+    "We charge a flat, one-time fee to audit your invoices. That fee pays for a concrete deliverable: a full written report benchmarking every line item against fair market pricing and flagging every contract violation we find — yours to keep, whether the distributor agrees to fix anything. ",
+    {
+      text: "If our audit doesn't turn up any savings opportunities, we refund the fee in full — no questions asked.",
+      bold: true,
+    },
+    " If we do find savings — a credit or a corrected rate — that audit fee is credited against our % fee, so you're never paying twice. And the % fee only kicks in once we've actually recovered something for you, not just identified it.",
+  ],
   rows: [
     {
       label: "One-time invoice audit fee",
-      sub: "Due upfront, per engagement",
+      sub: "Refundable if we don't find any saving",
       value: "$150",
       valueSub: "flat, one time",
     },
@@ -160,14 +166,110 @@ export const pricing = {
       sub: "Issued by the distributor for past overcharges",
       value: "30%",
       valueSub: "of the credited amount — audit fee credited against this first",
+      detailAnchor: "hard-credit",
     },
     {
       label: "Locked go-forward rate correction",
       sub: "Old price vs. new negotiated price × expected volume, fixed term",
       value: "25%",
       valueSub: "of the calculated savings over a defined 12-month term — audit fee credited against this first",
+      detailAnchor: "rate-correction",
     },
   ],
+  detailLinkLabel: "See how this is calculated →",
+};
+
+// Interactive walkthrough at /pricing/how-it-works, linked from the two
+// percentage-based pricing cards above (via `detailAnchor`, matched against
+// each tab/example `id` here for deep-linking to the right tab).
+export const feeWalkthrough = {
+  eyebrow: "Pricing",
+  title: "How the fee works",
+  sub: "Tap through the outcomes, or plug in your own numbers to see what your recovery looks like.",
+  tabs: [
+    { id: "hard-credit", label: "Hard Credit" },
+    { id: "rate-correction", label: "Rate Correction" },
+    { id: "nothing-found", label: "Nothing Found" },
+    { id: "calculator", label: "Try Your Numbers" },
+  ],
+  examples: [
+    {
+      id: "hard-credit",
+      eyebrow: "USE CASE ONE",
+      title: "Hard Credit for a Past Overcharge",
+      found: 1800,
+      keep: 1260,
+      cost: 540,
+      note: "Distributor issues an $1,800 credit for three months of overbilled chicken breast.",
+      math: [
+        { l: "Audit fee (paid upfront)", v: "$150" },
+        { rule: true },
+        { l: "Contract rate, chicken breast", v: "$2.10/lb", thin: true },
+        { l: "Actual billed rate", v: "$2.40/lb", thin: true },
+        { l: "Overcharge per lb", v: "$0.30", bold: true },
+        { note: "2,000 lb/mo × 3 months affected" },
+        { l: "Total overcharge found", v: "$1,800", bold: true },
+        { rule: true },
+        { l: "Distributor credit issued", v: "$1,800", pos: true },
+        { l: "Our fee (30% of credit)", v: "-$540", neg: true },
+        { l: "Audit fee credited back", v: "+$150", pos: true },
+        { l: "Balance due from you", v: "$390", bold: true },
+      ],
+    },
+    {
+      id: "rate-correction",
+      eyebrow: "USE CASE TWO",
+      title: "Locked Go-Forward Rate Correction",
+      found: 1680,
+      keep: 1260,
+      cost: 420,
+      note: "Rate drops from $45 to $38/case, locked for 12 months, then continues at no further fee.",
+      math: [
+        { l: "Audit fee (paid upfront)", v: "$150" },
+        { rule: true },
+        { l: "Old rate, paper goods case", v: "$45.00", thin: true },
+        { l: "New negotiated rate", v: "$38.00", thin: true },
+        { l: "Savings per case", v: "$7.00", bold: true },
+        { note: "20 cases/mo × 12-month term" },
+        { l: "Total locked savings", v: "$1,680", bold: true },
+        { rule: true },
+        { l: "Our fee (25% of savings)", v: "-$420", neg: true },
+        { l: "Audit fee credited back", v: "+$150", pos: true },
+        { l: "Balance due from you", v: "$270", bold: true },
+      ],
+    },
+    {
+      id: "nothing-found",
+      eyebrow: "USE CASE THREE",
+      title: "Nothing Worth Pursuing Found",
+      found: 0,
+      keep: 0,
+      cost: 0,
+      note: "Your $150 audit fee is refunded in full, plus you keep the written report.",
+      math: [
+        { l: "Audit fee (paid upfront)", v: "$150" },
+        { rule: true },
+        { l: "Invoices reviewed", v: "✓", thin: true },
+        { l: "Line items benchmarked", v: "✓", thin: true },
+        { l: "Contract terms checked", v: "✓", thin: true },
+        { l: "Overcharges found", v: "$0", bold: true },
+        { rule: true },
+        { l: "Audit fee refunded to you", v: "+$150", pos: true },
+        { l: "Balance due from you", v: "$0", bold: true },
+      ],
+    },
+  ],
+  calculator: {
+    eyebrow: "TRY IT YOURSELF",
+    title: "Run your own numbers",
+    hint: "Type in your own numbers to see how a recovery of your own size would play out.",
+    defaultSavings: 1800,
+    pctOptions: [30, 25],
+    defaultPct: 30,
+    auditFee: 150,
+    auditHint: "Flat and fixed — refunded if we find nothing, credited if we do.",
+  },
+  ctaText: "Ready to see what your invoices could recover?",
 };
 
 // Guarantee sits right after Pricing, is deliberately left out of the top

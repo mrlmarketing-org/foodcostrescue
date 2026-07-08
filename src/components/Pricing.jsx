@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { pricing } from "../data/content.js";
 import styles from "./Pricing.module.css";
 
@@ -17,7 +18,15 @@ export default function Pricing() {
         >
           <span className="eyebrow">{pricing.kicker}</span>
           <h2>{pricing.headline}</h2>
-          <p className={styles.intro}>{pricing.intro}</p>
+          <p className={styles.intro}>
+            {pricing.intro.map((part, i) =>
+              typeof part === "string" ? (
+                <span key={i}>{part}</span>
+              ) : (
+                <strong key={i}>{part.text}</strong>
+              )
+            )}
+          </p>
         </motion.div>
 
         <div className={styles.cards}>
@@ -34,6 +43,14 @@ export default function Pricing() {
               <p className={styles.cardSub}>{row.sub}</p>
               <p className={styles.cardValue}>{row.value}</p>
               <p className={styles.cardValueSub}>{row.valueSub}</p>
+              {row.detailAnchor && (
+                <Link
+                  to={`/pricing/how-it-works#${row.detailAnchor}`}
+                  className={styles.cardLink}
+                >
+                  {pricing.detailLinkLabel}
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
