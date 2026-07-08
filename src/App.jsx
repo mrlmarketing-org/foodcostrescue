@@ -5,6 +5,9 @@ import BlogIndexPage from "./pages/BlogIndexPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import GuaranteeDetailPage from "./pages/GuaranteeDetailPage.jsx";
 import PricingHowItWorksPage from "./pages/PricingHowItWorksPage.jsx";
+import GetStartedPage from "./pages/GetStartedPage.jsx";
+import GetStartedSuccessPage from "./pages/GetStartedSuccessPage.jsx";
+import GetStartedCancelledPage from "./pages/GetStartedCancelledPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import LegalPage from "./pages/LegalPage.jsx";
 import { terms, privacy } from "./data/legal.js";
@@ -18,6 +21,9 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/guarantee/:slug" element={<GuaranteeDetailPage />} />
         <Route path="/pricing/how-it-works" element={<PricingHowItWorksPage />} />
+        <Route path="/get-started" element={<GetStartedPage />} />
+        <Route path="/get-started/success" element={<GetStartedSuccessPage />} />
+        <Route path="/get-started/cancelled" element={<GetStartedCancelledPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<LegalPage doc={terms} />} />
         <Route path="/privacy" element={<LegalPage doc={privacy} />} />

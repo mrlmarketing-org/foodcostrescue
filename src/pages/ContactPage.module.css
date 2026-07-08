@@ -88,6 +88,21 @@
   color: var(--ink-faint);
 }
 
+.formSuccess {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mint-deep);
+}
+
+.formError {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c0392b;
+  background: #fdecea;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
 .infoPanel {
   background: var(--ink);
   color: var(--paper);

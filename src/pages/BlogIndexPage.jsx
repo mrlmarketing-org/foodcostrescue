@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo.jsx";
 import { posts } from "../data/blog.js";
 import { images } from "../assets/images/index.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./BlogIndexPage.module.css";
 
 function formatDate(iso) {
@@ -10,10 +12,12 @@ function formatDate(iso) {
 }
 
 export default function BlogIndexPage() {
+  const isMobile = useIsMobile();
+
   return (
     <>
       <Seo
-        title="Blog — foodcostrescue"
+        title="Blog — supplynegotiator"
         description="Straight talk on reading distributor invoices, fuel surcharges, produce pricing, and fair market benchmarks for restaurants."
         path="/blog"
       />
@@ -35,10 +39,7 @@ export default function BlogIndexPage() {
               <motion.article
                 key={post.slug}
                 className={styles.card}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+                {...reveal(isMobile, { distance: 30, amount: 0.3, duration: 0.5, delay: (i % 3) * 0.08 })}
               >
                 <Link to={`/blog/${post.slug}`} className={styles.imgLink}>
                   <img src={images[post.image]} alt={post.title} loading="lazy" />

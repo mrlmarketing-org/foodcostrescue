@@ -1,32 +1,26 @@
 import { motion } from "framer-motion";
 import { trustStrip } from "../data/content.js";
-import { IconCoin, IconPartners, IconTrendingUp, IconCheck } from "./Icons.jsx";
+import { images } from "../assets/images/index.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./TrustStrip.module.css";
 
-const icons = [IconCoin, IconPartners, IconTrendingUp, IconCheck];
-
 export default function TrustStrip() {
+  const isMobile = useIsMobile();
+
   return (
     <div className={styles.wrap}>
       <div className={`container ${styles.row}`}>
-        {trustStrip.map((item, i) => {
-          const Icon = icons[i % icons.length];
-          return (
-            <motion.div
-              key={item}
-              className={styles.item}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.4 }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-            >
-              <span className={styles.icon}>
-                <Icon size={17} />
-              </span>
-              <span>{item}</span>
-            </motion.div>
-          );
-        })}
+        {trustStrip.map((item, i) => (
+          <motion.div
+            key={item.text}
+            className={styles.item}
+            {...reveal(isMobile, { distance: 16, duration: 0.5, delay: i * 0.08 })}
+          >
+            <img src={images[item.image]} alt="" className={styles.photo} loading="lazy" />
+            <span>{item.text}</span>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

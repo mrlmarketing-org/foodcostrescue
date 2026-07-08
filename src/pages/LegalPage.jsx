@@ -6,7 +6,7 @@ import styles from "./LegalPage.module.css";
 export default function LegalPage({ doc }) {
   return (
     <>
-      <Seo title={`${doc.title} — foodcostrescue`} description={doc.intro} path={doc.path} />
+      <Seo title={`${doc.title} — supplynegotiator`} description={doc.intro} path={doc.path} />
 
       <article className={`section ${styles.section}`}>
         <div className={`container ${styles.container}`}>

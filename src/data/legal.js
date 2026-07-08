@@ -6,12 +6,12 @@ export const terms = {
   path: "/terms",
   updated: "This is placeholder text and has not been reviewed by legal counsel.",
   intro:
-    "These Terms & Conditions (\"Terms\") govern your use of the foodcostrescue website and invoice audit services (the \"Service\"). By booking a call, submitting invoices, or otherwise using the Service, you agree to these Terms.",
+    "These Terms & Conditions (\"Terms\") govern your use of the supplynegotiator website and invoice audit services (the \"Service\"). By booking a call, submitting invoices, or otherwise using the Service, you agree to these Terms.",
   sections: [
     {
       heading: "1. Description of Service",
       paragraphs: [
-        "foodcostrescue audits a restaurant's supplier invoices, benchmarks pricing against market data, and helps identify and recover overcharges. The Service includes a one-time audit fee and, where savings are found, a percentage-based recovery fee, as described on our Pricing page.",
+        "supplynegotiator audits a restaurant's supplier invoices, benchmarks pricing against market data, and helps identify and recover overcharges. The Service includes a one-time audit fee and, where savings are found, a percentage-based recovery fee, as described on our Pricing page.",
       ],
     },
     {
@@ -23,19 +23,19 @@ export const terms = {
     {
       heading: "3. Client Responsibilities",
       paragraphs: [
-        "You agree to provide accurate and complete invoice data, and to respond to reasonable requests for clarification during the audit process. foodcostrescue is not responsible for inaccuracies arising from incomplete or incorrect information provided by the client.",
+        "You agree to provide accurate and complete invoice data, and to respond to reasonable requests for clarification during the audit process. supplynegotiator is not responsible for inaccuracies arising from incomplete or incorrect information provided by the client.",
       ],
     },
     {
       heading: "4. Intellectual Property",
       paragraphs: [
-        "The written report produced from your audit is yours to keep and use as you see fit. foodcostrescue retains ownership of its underlying benchmarking methodology, pricing data, and analysis tools.",
+        "The written report produced from your audit is yours to keep and use as you see fit. supplynegotiator retains ownership of its underlying benchmarking methodology, pricing data, and analysis tools.",
       ],
     },
     {
       heading: "5. Limitation of Liability",
       paragraphs: [
-        "The Service is provided on a best-efforts basis. foodcostrescue makes no guarantee of a specific dollar recovery amount and is not liable for a distributor's refusal to honor a credit, refund, or corrected rate.",
+        "The Service is provided on a best-efforts basis. supplynegotiator makes no guarantee of a specific dollar recovery amount and is not liable for a distributor's refusal to honor a credit, refund, or corrected rate.",
       ],
     },
     {
@@ -62,7 +62,7 @@ export const privacy = {
   path: "/privacy",
   updated: "This is placeholder text and has not been reviewed by legal counsel.",
   intro:
-    "This Privacy Policy describes how foodcostrescue (\"we\", \"us\") collects, uses, and protects information when you use our website or invoice audit services.",
+    "This Privacy Policy describes how supplynegotiator (\"we\", \"us\") collects, uses, and protects information when you use our website or invoice audit services.",
   sections: [
     {
       heading: "1. Information We Collect",
@@ -95,7 +95,7 @@ export const privacy = {
     {
       heading: "6. Your Rights",
       paragraphs: [
-        "You may request access to, correction of, or deletion of your personal data at any time by contacting us at hello@foodcostrescue.com.",
+        "You may request access to, correction of, or deletion of your personal data at any time by contacting us at hello@supplynegotiator.com.",
       ],
     },
     {

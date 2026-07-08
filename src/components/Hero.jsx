@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { hero } from "../data/content.js";
 import { images } from "../assets/images/index.js";
-import BookCallButton from "./BookCallButton.jsx";
+import GetStartedButton from "./GetStartedButton.jsx";
 import styles from "./Hero.module.css";
 
 const SLIDE_MS = 2800;
@@ -52,9 +52,9 @@ export default function Hero() {
           <p className={styles.subhead}>{hero.subhead}</p>
 
           <div className={styles.actions}>
-            <BookCallButton className="btn btn-primary">
+            <GetStartedButton className="btn btn-primary">
               {hero.primaryCta} <span aria-hidden>→</span>
-            </BookCallButton>
+            </GetStartedButton>
             <a href="#how-it-works" className={styles.secondary}>
               {hero.secondaryCta} <span aria-hidden>↓</span>
             </a>

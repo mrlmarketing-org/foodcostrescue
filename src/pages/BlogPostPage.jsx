@@ -4,7 +4,7 @@ import Seo from "../components/Seo.jsx";
 import { getPostBySlug, posts } from "../data/blog.js";
 import { images } from "../assets/images/index.js";
 import { brand } from "../data/content.js";
-import BookCallButton from "../components/BookCallButton.jsx";
+import GetStartedButton from "../components/GetStartedButton.jsx";
 import styles from "./BlogPostPage.module.css";
 
 function formatDate(iso) {
@@ -27,7 +27,7 @@ export default function BlogPostPage() {
     description: post.metaDescription,
     datePublished: post.date,
     author: { "@type": "Organization", name: post.author },
-    publisher: { "@type": "Organization", name: "foodcostrescue" },
+    publisher: { "@type": "Organization", name: "supplynegotiator" },
   };
 
   const related = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
@@ -79,9 +79,9 @@ export default function BlogPostPage() {
 
           <div className={styles.ctaBox}>
             <p>Want to know what your own invoices are hiding?</p>
-            <BookCallButton className="btn btn-primary">
-              Book a 15-minute call <span aria-hidden>→</span>
-            </BookCallButton>
+            <GetStartedButton className="btn btn-primary">
+              Get Started Now <span aria-hidden>→</span>
+            </GetStartedButton>
           </div>
 
           {related.length > 0 && (

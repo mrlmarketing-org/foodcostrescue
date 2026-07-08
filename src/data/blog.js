@@ -10,7 +10,7 @@ export const posts = [
     metaDescription:
       "A line-by-line guide to reading a food distributor invoice: what the codes mean, where contract rates slip, and which lines are worth a second look.",
     date: "2026-05-04",
-    author: "foodcostrescue team",
+    author: "supplynegotiator team",
     readTime: "6 min read",
     image: "invoice",
     body: [
@@ -45,7 +45,7 @@ export const posts = [
     metaDescription:
       "Understand which produce price swings are driven by weather and seasonality, and which ones indicate your distributor is quietly marking up an item.",
     date: "2026-04-18",
-    author: "foodcostrescue team",
+    author: "supplynegotiator team",
     readTime: "5 min read",
     image: "produce",
     body: [
@@ -72,7 +72,7 @@ export const posts = [
     metaDescription:
       "Fuel and delivery surcharges on food distributor invoices are rarely audited. Here's what a fair fuel surcharge should look like and how to check yours.",
     date: "2026-03-22",
-    author: "foodcostrescue team",
+    author: "supplynegotiator team",
     readTime: "4 min read",
     image: "surcharges",
     body: [
@@ -98,7 +98,7 @@ export const posts = [
     metaDescription:
       "A practical definition of fair market pricing for restaurant food distribution, and why comparing your invoice to your own history isn't enough.",
     date: "2026-02-11",
-    author: "foodcostrescue team",
+    author: "supplynegotiator team",
     readTime: "5 min read",
     image: "market",
     body: [

@@ -1,4 +1,4 @@
-// Central copy file for the FoodCostRescue landing page.
+// Central copy file for the SupplyNegotiator landing page.
 // Items derived from [CONFIRM: ...] placeholders in the source brief use the
 // example values given there as working defaults — swap them here before launch.
 //
@@ -13,11 +13,9 @@
 //     below) pending real business details.
 
 export const brand = {
-  name: "foodcostrescue",
-  displayName: "food cost rescue",
-  domain: "https://www.foodcostrescue.com",
-  // Placeholder Calendly account — swap for the company's real one later.
-  calendlyUrl: "https://calendly.com/iruoma-jennifer-onyia",
+  name: "supplynegotiator",
+  displayName: "supply negotiator",
+  domain: "https://www.supplynegotiator.com",
 };
 
 export const nav = {
@@ -30,7 +28,7 @@ export const nav = {
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
-  cta: "Book a call",
+  cta: "Get Started Now",
 };
 
 // Footer-only — deliberately left out of the top nav.
@@ -44,15 +42,15 @@ export const hero = {
   headline: "We audit your supplier's invoices and get back every dollar you're overpaid.",
   subhead:
     "Restaurants buying bulk from big distributors are routinely overcharged — random price hikes, broken contract terms, fees that shouldn't be there. We benchmark every invoice against fair market pricing, show you exactly where you're losing money, and negotiate the recovery on your behalf.",
-  primaryCta: "Book a 15-minute call",
+  primaryCta: "Get Started Now",
   secondaryCta: "See how it works",
 };
 
 export const trustStrip = [
-  "Small flat audit fee, refunded in full if we don't find savings",
-  "You keep the majority of what we recover",
-  "Benchmarked against real distributor pricing data",
-  "Built by people who understand restaurant supply chains",
+  { text: "Small flat audit fee, refunded in full if we don't find savings", image: "trustRefund" },
+  { text: "You keep the majority of what we recover", image: "trustKeep" },
+  { text: "Benchmarked against real distributor pricing data", image: "trustBenchmark" },
+  { text: "Built by people who understand restaurant supply chains", image: "trustSupplychain" },
 ];
 
 // About us combines the source brief's "Problem" and "Solution" sections.
@@ -68,7 +66,7 @@ export const aboutUs = {
   bodyMore: [
     "You're running a restaurant, not auditing freight invoices. Nobody on staff has the time to compare every line item against what it should actually cost, or the leverage to call the distributor and get it fixed.",
     { bold: "We do that part for you." },
-    "foodcostrescue collects your recent supplier invoices and benchmarks every line item — against fair market pricing for your region and order volume. We flag overcharges, expired contract rates, missing rebates, and fees that shouldn't be there.",
+    "supplynegotiator collects your recent supplier invoices and benchmarks every line item — against fair market pricing for your region and order volume. We flag overcharges, expired contract rates, missing rebates, and fees that shouldn't be there.",
     "Once we know where the money is, we go back to the distributor on your behalf — or arm you with exactly what to say — to recover credits and refunds, and to correct pricing going forward, so the overcharges stop happening.",
   ],
   callout: {
@@ -118,27 +116,27 @@ export const howItWorks = {
     {
       title: "Send us your invoices.",
       body: "Share 2–3 months of recent invoices from your main distributor(s). Takes most owners a few minutes.",
-      icon: "send",
+      image: "howSend",
     },
     {
       title: "We benchmark and analyze.",
       body: "We compare every line item against fair market pricing for your item mix, region, and order volume, and check your contract terms line by line.",
-      icon: "search",
+      image: "howAnalyze",
     },
     {
       title: "We show you where you're overpaying.",
       body: "You get a clear report: what's overpriced, by how much, and what it's costing you per month and per year.",
-      icon: "chart",
+      image: "howOverpaying",
     },
     {
       title: "We negotiate the recovery.",
       body: "We contact the distributor on your behalf to recover credits or refunds, and to correct pricing going forward.",
-      icon: "phone",
+      image: "howNegotiate",
     },
     {
       title: "Keep savings.",
       body: "Corrected pricing stays in place, and we keep monitoring future invoices, so new overcharges get caught early.",
-      icon: "shield",
+      image: "howSavings",
     },
   ],
 };
@@ -166,22 +164,19 @@ export const pricing = {
       sub: "Issued by the distributor for past overcharges",
       value: "30%",
       valueSub: "of the credited amount — audit fee credited against this first",
-      detailAnchor: "hard-credit",
     },
     {
       label: "Locked go-forward rate correction",
       sub: "Old price vs. new negotiated price × expected volume, fixed term",
       value: "25%",
       valueSub: "of the calculated savings over a defined 12-month term — audit fee credited against this first",
-      detailAnchor: "rate-correction",
     },
   ],
-  detailLinkLabel: "See how this is calculated →",
+  detailLinkLabel: "See how pricing is calculated →",
 };
 
-// Interactive walkthrough at /pricing/how-it-works, linked from the two
-// percentage-based pricing cards above (via `detailAnchor`, matched against
-// each tab/example `id` here for deep-linking to the right tab).
+// Interactive walkthrough at /pricing/how-it-works, linked from below the
+// pricing cards above.
 export const feeWalkthrough = {
   eyebrow: "Pricing",
   title: "How the fee works",
@@ -315,7 +310,7 @@ export const guarantee = {
   ],
   valueFraming:
     "There's genuinely no downside to finding out: if we come up empty, you get your $150 back. If we find real savings, the fee simply comes off what you'd owe us anyway.",
-  cta: "Book a call to get your first invoice review",
+  cta: "Get Started Now",
 };
 
 export const whyUs = {
@@ -324,17 +319,17 @@ export const whyUs = {
     {
       title: "We know what distributor pricing should actually look like.",
       body: "Our team has spent years in restaurant procurement and supply chain roles — we've sat on both sides of the invoice.",
-      icon: "target",
+      icon: "pricingExpertise",
     },
     {
       title: "A benchmarking approach, not a guess.",
       body: "We compare your invoices against pricing data gathered across many restaurants, regions, and order volumes — not a one-off opinion about whether a number looks high.",
-      icon: "trendingUp",
+      icon: "benchmarkBars",
     },
     {
       title: "We make an uncomfortable call, so you don't have to.",
       body: "Negotiating with a major distributor rep is awkward when you're also relying on them for tomorrow's delivery. We handle that conversation, so your relationship with the distributor stays intact.",
-      icon: "partners",
+      icon: "toughCall",
     },
   ],
 };
@@ -388,24 +383,51 @@ export const faq = [
 
 export const finalCta = {
   headline: "Find out what you're overpaying — before your next delivery.",
-  body: "Send us your last few invoices and we'll tell you exactly where the money is going. One call is all it takes to get started.",
-  primaryCta: "Book a 15-minute call",
-  secondaryCta: "Or send us your invoices and we'll reach out",
+  body: "Send us your last few invoices and we'll tell you exactly where the money is going. It only takes a few minutes to get started.",
+  primaryCta: "Get Started Now",
 };
 
-// Placeholder business details — swap for the real phone/address/socials
-// before launch (user chose to proceed with clear placeholders for now).
+// Placeholder business details — swap for the real address/socials before
+// launch (user chose to proceed with clear placeholders for now).
 export const contact = {
   kicker: "Contact",
   headline: "Let's talk about your invoices.",
-  body: "Send us a message and we'll get back to you within one business day — or book a call directly if you'd rather skip the back-and-forth.",
-  email: "hello@foodcostrescue.com",
-  // Dummy placeholder values — swap for the real phone/address before launch.
-  phone: "+1 (415) 555-0148",
+  body: "Send us a message and we'll get back to you within one business day — or send us your invoices directly if you'd rather skip the back-and-forth.",
+  email: "hello@supplynegotiator.com",
+  // Dummy placeholder value — swap for the real address before launch.
   address: "248 Market Street, Suite 310, San Francisco, CA 94105",
   socials: [
     { label: "Instagram", icon: "instagram", href: "#" },
     { label: "LinkedIn", icon: "linkedin", href: "#" },
     { label: "X", icon: "x", href: "#" },
   ],
+};
+
+// The "Get Started Now" flow at /get-started — one continuous 3-step form
+// (info -> agree to terms -> pay the $150 audit fee), used by every CTA
+// sitewide. Field option lists live here so copy changes don't require
+// touching component code.
+export const getStartedFlow = {
+  eyebrow: "Get started",
+  headline: "Let's find out what you're overpaying.",
+  subhead: "Three quick steps: tell us about your account, agree to the engagement terms, and pay the one-time $150 audit fee to lock in your spot.",
+  steps: ["Your info", "Agree to terms", "Pay & continue"],
+  distributorOptions: [
+    { value: "sysco", label: "Sysco" },
+    { value: "us-foods", label: "US Foods" },
+    { value: "pfg", label: "Performance Food Group" },
+    { value: "regional", label: "Regional or independent" },
+    { value: "not-sure", label: "Not sure" },
+  ],
+  spendOptions: [
+    { value: "under10k", label: "Under $10k" },
+    { value: "10k-30k", label: "$10k–$30k" },
+    { value: "30k-plus", label: "$30k+" },
+  ],
+  locationsOptions: [
+    { value: "1", label: "1" },
+    { value: "2-5", label: "2–5" },
+    { value: "6-plus", label: "6+" },
+  ],
+  auditFee: "$150",
 };

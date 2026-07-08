@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Wordmark } from "./Logo.jsx";
-import BookCallButton from "./BookCallButton.jsx";
+import GetStartedButton from "./GetStartedButton.jsx";
 import { nav } from "../data/content.js";
 import styles from "./Navbar.module.css";
 
@@ -52,9 +52,9 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <BookCallButton className={`btn btn-primary ${styles.cta}`}>
+        <GetStartedButton className={`btn btn-primary ${styles.cta}`}>
           {nav.cta}
-        </BookCallButton>
+        </GetStartedButton>
 
         <button
           className={styles.burger}
@@ -74,9 +74,9 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <BookCallButton className="btn btn-primary" onClick={() => setOpen(false)}>
+          <GetStartedButton className="btn btn-primary" onClick={() => setOpen(false)}>
             {nav.cta}
-          </BookCallButton>
+          </GetStartedButton>
         </div>
       )}
     </motion.header>

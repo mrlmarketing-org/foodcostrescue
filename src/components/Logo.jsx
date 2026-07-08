@@ -63,7 +63,7 @@ export function Wordmark({ size = 28 }) {
       }}
     >
       <LogoMark size={size * 1.7} />
-      <span>foodcostrescue</span>
+      <span>supplynegotiator</span>
     </span>
   );
 }

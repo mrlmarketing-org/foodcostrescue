@@ -13,7 +13,7 @@
 .timeline::before {
   content: "";
   position: absolute;
-  top: 34px;
+  top: 46px;
   left: 8%;
   right: 8%;
   height: 2px;
@@ -54,43 +54,50 @@
 
 .node {
   position: relative;
-  width: 68px;
-  height: 68px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   box-shadow: var(--shadow-soft);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  border: 3px solid transparent;
+  padding: 3px;
 }
 
 .node.coral {
-  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 75%);
-  color: var(--coral-deep);
+  border-color: var(--coral);
 }
 .node.mint {
-  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 75%);
-  color: var(--mint-deep);
+  border-color: var(--mint);
 }
 .node.sky {
-  background: linear-gradient(160deg, var(--sky-tint), var(--paper) 75%);
-  color: var(--sky-deep);
+  border-color: var(--sky);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .step_num {
   position: absolute;
   top: -6px;
   right: -6px;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--ink);
   color: var(--paper);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .title {

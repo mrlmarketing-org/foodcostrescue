@@ -1,19 +1,17 @@
 import { motion } from "framer-motion";
 import { whatWeAudit } from "../data/content.js";
 import { images } from "../assets/images/index.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./WhatWeAudit.module.css";
 
 export default function WhatWeAudit() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="what-we-audit" className={`section ${styles.section}`}>
       <div className="container">
-        <motion.div
-          className="section-head centered"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <motion.div className="section-head centered" {...reveal(isMobile, { distance: 20 })}>
           <span className="eyebrow">{whatWeAudit.kicker}</span>
           <h2>{whatWeAudit.headline}</h2>
         </motion.div>
@@ -25,10 +23,12 @@ export default function WhatWeAudit() {
               <div key={item.title} className={`${styles.row} ${fromLeft ? "" : styles.reverse}`}>
                 <motion.div
                   className={styles.art}
-                  initial={{ opacity: 0, x: fromLeft ? -80 : 80 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.35 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  {...reveal(isMobile, {
+                    axis: "x",
+                    distance: fromLeft ? -80 : 80,
+                    amount: 0.35,
+                    duration: 0.7,
+                  })}
                 >
                   <img src={images[item.image]} alt={item.title} loading="lazy" />
                   <span className={styles.number}>0{i + 1}</span>
@@ -36,10 +36,13 @@ export default function WhatWeAudit() {
 
                 <motion.div
                   className={styles.copy}
-                  initial={{ opacity: 0, x: fromLeft ? 80 : -80 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.35 }}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+                  {...reveal(isMobile, {
+                    axis: "x",
+                    distance: fromLeft ? 80 : -80,
+                    amount: 0.35,
+                    duration: 0.7,
+                    delay: 0.05,
+                  })}
                 >
                   <h3 className={styles.title}>{item.title}</h3>
                   <p className={styles.body}>{item.body}</p>
@@ -49,13 +52,7 @@ export default function WhatWeAudit() {
           })}
         </div>
 
-        <motion.p
-          className={styles.footnote}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.6 }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.p className={styles.footnote} {...reveal(isMobile, { distance: 0, amount: 0.6, duration: 0.5 })}>
           {whatWeAudit.footnote}
         </motion.p>
       </div>

@@ -6,7 +6,7 @@ import { dirname, resolve } from "node:path";
 import { posts } from "../src/data/blog.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const domain = "https://www.foodcostrescue.com";
+const domain = "https://www.supplynegotiator.com";
 const today = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = ["/", "/blog", "/contact", "/terms", "/privacy"];

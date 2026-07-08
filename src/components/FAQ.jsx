@@ -1,21 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faq } from "../data/content.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./FAQ.module.css";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   return (
     <section id="faq" className={`section ${styles.section}`}>
       <div className="container">
-        <motion.div
-          className="section-head centered"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <motion.div className="section-head centered" {...reveal(isMobile, { distance: 20 })}>
           <span className="eyebrow">FAQ</span>
           <h2>Questions restaurant owners ask us.</h2>
         </motion.div>
@@ -27,10 +24,7 @@ export default function FAQ() {
               <motion.div
                 key={item.q}
                 className={styles.item}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.4, delay: Math.min(i, 6) * 0.04 }}
+                {...reveal(isMobile, { distance: 16, amount: 0.3, duration: 0.4, delay: Math.min(i, 6) * 0.04 })}
               >
                 <button
                   className={styles.question}

@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { aboutUs } from "../data/content.js";
 import { images } from "../assets/images/index.js";
 import { IconCheck } from "./Icons.jsx";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./AboutUs.module.css";
 
 export default function AboutUs() {
   const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
     <section id="about" className={`section ${styles.section}`}>
       <div className={`container ${styles.grid}`}>
         <motion.div
           className={styles.art}
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          {...reveal(isMobile, { axis: "x", distance: -50, amount: 0.3, duration: 0.7 })}
         >
           <img src={images.about1} alt="Workers unloading crates of fresh produce from a delivery truck" className={styles.img1} />
           <img src={images.about2} alt="Our team reviewing invoice data together" className={styles.img2} />
@@ -24,10 +24,7 @@ export default function AboutUs() {
 
         <motion.div
           className={styles.copy}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+          {...reveal(isMobile, { axis: "x", distance: 50, amount: 0.3, duration: 0.7, delay: 0.05 })}
         >
           <span className="eyebrow">{aboutUs.kicker}</span>
           <h2 className={styles.headline}>{aboutUs.headline}</h2>
@@ -84,10 +81,7 @@ export default function AboutUs() {
 
       <motion.div
         className={`container ${styles.calloutRow}`}
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        {...reveal(isMobile, { axis: "x", distance: -80, amount: 0.4, duration: 0.7 })}
       >
         <div className={styles.callout}>
           <p className={styles.calloutBody}>{aboutUs.callout.body}</p>

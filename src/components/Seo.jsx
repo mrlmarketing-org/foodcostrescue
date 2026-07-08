@@ -3,7 +3,7 @@ import { brand } from "../data/content.js";
 
 export default function Seo({ title, description, path = "/", image, jsonLd }) {
   const url = `${brand.domain}${path}`;
-  const fullTitle = title.includes(brand.name) ? title : `${title} — foodcostrescue`;
+  const fullTitle = title.includes(brand.name) ? title : `${title} — supplynegotiator`;
 
   return (
     <Helmet>
@@ -12,7 +12,7 @@ export default function Seo({ title, description, path = "/", image, jsonLd }) {
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="foodcostrescue" />
+      <meta property="og:site_name" content="supplynegotiator" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

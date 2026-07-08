@@ -2,20 +2,18 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { guarantee } from "../data/content.js";
 import { images } from "../assets/images/index.js";
-import BookCallButton from "./BookCallButton.jsx";
+import GetStartedButton from "./GetStartedButton.jsx";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./Guarantee.module.css";
 
 export default function Guarantee() {
+  const isMobile = useIsMobile();
+
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
-        <motion.div
-          className="section-head centered"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <motion.div className="section-head centered" {...reveal(isMobile, { distance: 20 })}>
           <span className="eyebrow">{guarantee.kicker}</span>
           <h2>{guarantee.headline}</h2>
         </motion.div>
@@ -25,10 +23,7 @@ export default function Guarantee() {
             <motion.div
               key={item.slug}
               className={styles.row}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.35 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
+              {...reveal(isMobile, { distance: 30, amount: 0.35, delay: i * 0.08 })}
             >
               <div className={styles.art}>
                 <img src={images[item.image]} alt={item.title} loading="lazy" />
@@ -44,20 +39,14 @@ export default function Guarantee() {
           ))}
         </div>
 
-        <motion.p
-          className={styles.valueFraming}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.p className={styles.valueFraming} {...reveal(isMobile, { distance: 20, amount: 0.5 })}>
           {guarantee.valueFraming}
         </motion.p>
 
         <div className={styles.ctaRow}>
-          <BookCallButton className="btn btn-primary">
+          <GetStartedButton className="btn btn-primary">
             {guarantee.cta} <span aria-hidden>→</span>
-          </BookCallButton>
+          </GetStartedButton>
         </div>
       </div>
     </section>

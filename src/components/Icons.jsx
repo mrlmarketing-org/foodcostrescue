@@ -10,85 +10,59 @@ const base = {
   strokeLinejoin: "round",
 };
 
-export function IconSend(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <path d="M21 3 3 11l7 2 2 7 9-17Z" />
-      <path d="M21 3 10 13" />
-    </svg>
-  );
-}
-
-export function IconSearch(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <circle cx="11" cy="11" r="7" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
-export function IconChart(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <path d="M4 20V10" />
-      <path d="M11 20V4" />
-      <path d="M18 20v-7" />
-      <path d="M3 20h18" />
-    </svg>
-  );
-}
-
-export function IconPhone(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <path d="M5 4h3l1.5 4.5L7.5 10a11 11 0 0 0 6.5 6.5l1.5-2L20 16v3a2 2 0 0 1-2 2 16 16 0 0 1-15-15 2 2 0 0 1 2-2Z" />
-    </svg>
-  );
-}
-
-export function IconShield(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <path d="M12 3 4.5 6v5.5C4.5 16.2 7.7 20 12 21c4.3-1 7.5-4.8 7.5-9.5V6L12 3Z" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
-  );
-}
-
-export function IconCoin(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v10M9.5 9.3c0-1.1 1.1-2 2.5-2s2.5.7 2.5 1.7c0 2.6-5 1.3-5 3.9 0 1 1.1 1.8 2.5 1.8s2.5-.7 2.5-1.8" />
-    </svg>
-  );
-}
-
-export function IconPartners(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <circle cx="9" cy="10" r="4" />
-      <circle cx="16" cy="11" r="3.4" />
-      <path d="M3.5 20c.6-3 2.8-5 5.5-5s4.9 2 5.5 5" />
-      <path d="M14.8 15.2c2.2.3 3.9 2.1 4.4 4.8" />
-    </svg>
-  );
-}
-
-export function IconTrendingUp(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <path d="m3 17 6-6 4 4 8-9" />
-      <path d="M15 6h6v6" />
-    </svg>
-  );
-}
-
 export function IconCheck(props) {
   return (
     <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
       <path d="m4 12.5 5 5L20 6" />
+    </svg>
+  );
+}
+
+// Duotone icon set for Why Us — bolder and more filled than the base
+// line-icon set above, meant to carry more visual weight inside a large
+// badge rather than sit small next to a line of text.
+
+export function IconPricingExpertise(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" width={props.size ?? 36} height={props.size ?? 36} className={props.className}>
+      <path
+        d="M11.5 2.5H4A1.5 1.5 0 0 0 2.5 4v7.5c0 .4.16.78.44 1.06l9 9a1.5 1.5 0 0 0 2.12 0l7.5-7.5a1.5 1.5 0 0 0 0-2.12l-9-9a1.5 1.5 0 0 0-1.06-.44Z"
+        fill="currentColor"
+        fillOpacity="0.16"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <circle cx="7.75" cy="7.75" r="1.75" fill="currentColor" />
+      <path d="m9.5 15 3 3 5-5.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function IconBenchmarkBars(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" width={props.size ?? 36} height={props.size ?? 36} className={props.className}>
+      <rect x="3" y="13" width="4.2" height="8" rx="1.2" fill="currentColor" fillOpacity="0.2" />
+      <rect x="9.9" y="8" width="4.2" height="13" rx="1.2" fill="currentColor" fillOpacity="0.4" />
+      <rect x="16.8" y="3" width="4.2" height="18" rx="1.2" fill="currentColor" fillOpacity="0.65" />
+      <path d="M3 12.5 9.5 7l4 3 7-6" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function IconToughCall(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" width={props.size ?? 36} height={props.size ?? 36} className={props.className}>
+      <path
+        d="M5 4h3l1.5 4.5L7.5 10a11 11 0 0 0 6.5 6.5l1.5-2L20 16v3a2 2 0 0 1-2 2 16 16 0 0 1-15-15 2 2 0 0 1 2-2Z"
+        fill="currentColor"
+        fillOpacity="0.18"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path d="M14.5 2.5c2.2.4 3.9 2.1 4.3 4.3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M14.5 6.2c1.1.25 1.95 1.1 2.2 2.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }
@@ -99,16 +73,6 @@ export function IconLifeRing(props) {
       <circle cx="12" cy="12" r="9" />
       <circle cx="12" cy="12" r="4" />
       <path d="m5.8 5.8 2.8 2.8M18.2 5.8l-2.8 2.8M5.8 18.2l2.8-2.8M18.2 18.2l-2.8-2.8" />
-    </svg>
-  );
-}
-
-export function IconTarget(props) {
-  return (
-    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
-      <circle cx="12" cy="12" r="9" />
-      <circle cx="12" cy="12" r="5" />
-      <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   );
 }

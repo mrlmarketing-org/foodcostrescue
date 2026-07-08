@@ -12,6 +12,18 @@ import blogCover3 from "./blog-cover-3.jpg";
 import guaranteeSavings from "./guarantee-savings.jpg";
 import guaranteeKeep from "./guarantee-keep.jpg";
 import guaranteeRefund from "./guarantee-refund.jpg";
+import trustRefund from "./trust-refund.jpg";
+import trustKeep from "./trust-keep.jpg";
+import trustBenchmark from "./trust-benchmark.jpg";
+import trustSupplychain from "./trust-supplychain.jpg";
+import howSend from "./how-send.jpg";
+import howAnalyze from "./how-analyze.jpg";
+import howOverpaying from "./how-overpaying.jpg";
+import howNegotiate from "./how-negotiate.jpg";
+import howSavings from "./how-savings.jpg";
+import whyPricing from "./why-pricing.jpg";
+import whyBenchmark from "./why-benchmark.jpg";
+import whyCall from "./why-call.jpg";
 
 export const images = {
   heroFood,
@@ -28,4 +40,16 @@ export const images = {
   guaranteeSavings,
   guaranteeKeep,
   guaranteeRefund,
+  trustRefund,
+  trustKeep,
+  trustBenchmark,
+  trustSupplychain,
+  howSend,
+  howAnalyze,
+  howOverpaying,
+  howNegotiate,
+  howSavings,
+  whyPricing,
+  whyBenchmark,
+  whyCall,
 };

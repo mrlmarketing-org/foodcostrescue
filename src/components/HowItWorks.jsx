@@ -1,48 +1,34 @@
 import { motion } from "framer-motion";
 import { howItWorks } from "../data/content.js";
-import { IconSend, IconSearch, IconChart, IconPhone, IconShield } from "./Icons.jsx";
+import { images } from "../assets/images/index.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./HowItWorks.module.css";
-
-const iconMap = {
-  send: IconSend,
-  search: IconSearch,
-  chart: IconChart,
-  phone: IconPhone,
-  shield: IconShield,
-};
 
 const accents = ["coral", "mint", "sky", "mint", "coral"];
 
 export default function HowItWorks() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="how-it-works" className={`section ${styles.section}`}>
       <div className="container">
-        <motion.div
-          className="section-head centered"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <motion.div className="section-head centered" {...reveal(isMobile, { distance: 20 })}>
           <span className="eyebrow">{howItWorks.kicker}</span>
           <h2>{howItWorks.headline}</h2>
         </motion.div>
 
         <div className={styles.timeline}>
           {howItWorks.steps.map((step, i) => {
-            const Icon = iconMap[step.icon];
             const accent = accents[i % accents.length];
             return (
               <motion.div
                 key={step.title}
                 className={styles.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.4 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                {...reveal(isMobile, { distance: 30, duration: 0.5, delay: i * 0.1 })}
               >
                 <div className={`${styles.node} ${styles[accent]}`}>
-                  <Icon size={24} className={styles.icon} />
+                  <img src={images[step.image]} alt="" className={styles.photo} loading="lazy" />
                   <span className={styles.step_num}>{i + 1}</span>
                 </div>
                 <h3 className={styles.title}>{step.title}</h3>

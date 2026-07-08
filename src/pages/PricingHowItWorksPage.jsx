@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
-import BookCallButton from "../components/BookCallButton.jsx";
+import GetStartedButton from "../components/GetStartedButton.jsx";
 import { feeWalkthrough } from "../data/content.js";
 import styles from "./PricingHowItWorksPage.module.css";
 
@@ -297,9 +297,9 @@ export default function PricingHowItWorksPage() {
 
           <div className={styles.ctaBox}>
             <p>{feeWalkthrough.ctaText}</p>
-            <BookCallButton className="btn btn-primary">
-              Book a 15-minute call <span aria-hidden>→</span>
-            </BookCallButton>
+            <GetStartedButton className="btn btn-primary">
+              Get Started Now <span aria-hidden>→</span>
+            </GetStartedButton>
           </div>
         </div>
       </article>

@@ -55,18 +55,6 @@
   flex-wrap: wrap;
 }
 
-.secondary {
-  font-weight: 700;
-  color: var(--paper);
-  border-bottom: 2px solid rgba(255, 250, 241, 0.4);
-  padding-bottom: 3px;
-}
-
-.secondary:hover {
-  border-color: var(--sky);
-  color: var(--sky);
-}
-
 .ctaOnDark {
   background: var(--cream);
   color: var(--ink);

@@ -26,7 +26,7 @@ export default function Footer() {
       </div>
 
       <div className={`container ${styles.legalRow}`}>
-        <p className={styles.copy}>© {new Date().getFullYear()} foodcostrescue. All rights reserved.</p>
+        <p className={styles.copy}>© {new Date().getFullYear()} supplynegotiator. All rights reserved.</p>
         <nav className={styles.legalLinks}>
           {legalLinks.map((link) => (
             <Link key={link.href} to={link.href}>

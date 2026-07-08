@@ -1,0 +1,30 @@
+.section {
+  background: var(--cream);
+  padding-top: 56px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 560px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 0 0 16px;
+}
+
+.body {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+.inlineLink {
+  color: var(--coral-deep);
+  font-weight: 700;
+}

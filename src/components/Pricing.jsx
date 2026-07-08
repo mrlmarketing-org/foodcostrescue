@@ -1,21 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { pricing } from "../data/content.js";
+import { useIsMobile } from "../hooks/useIsMobile.js";
+import { reveal } from "../lib/motionPresets.js";
 import styles from "./Pricing.module.css";
 
 const accents = ["gold", "mint", "coral"];
 
 export default function Pricing() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="pricing" className={`section ${styles.section}`}>
       <div className="container">
-        <motion.div
-          className="section-head centered"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <motion.div className="section-head centered" {...reveal(isMobile, { distance: 20 })}>
           <span className="eyebrow">{pricing.kicker}</span>
           <h2>{pricing.headline}</h2>
           <p className={styles.intro}>
@@ -34,25 +32,20 @@ export default function Pricing() {
             <motion.div
               key={row.label}
               className={`${styles.card} ${styles[accents[i % accents.length]]}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.4 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              {...reveal(isMobile, { distance: 30, duration: 0.5, delay: i * 0.1 })}
             >
               <p className={styles.cardLabel}>{row.label}</p>
               <p className={styles.cardSub}>{row.sub}</p>
               <p className={styles.cardValue}>{row.value}</p>
               <p className={styles.cardValueSub}>{row.valueSub}</p>
-              {row.detailAnchor && (
-                <Link
-                  to={`/pricing/how-it-works#${row.detailAnchor}`}
-                  className={styles.cardLink}
-                >
-                  {pricing.detailLinkLabel}
-                </Link>
-              )}
             </motion.div>
           ))}
+        </div>
+
+        <div className={styles.detailLinkRow}>
+          <Link to="/pricing/how-it-works" className={styles.detailLink}>
+            {pricing.detailLinkLabel}
+          </Link>
         </div>
       </div>
     </section>

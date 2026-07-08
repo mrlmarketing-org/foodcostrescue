@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.foodcostrescue.com/sitemap.xml
+Sitemap: https://www.supplynegotiator.com/sitemap.xml

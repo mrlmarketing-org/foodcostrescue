@@ -14,10 +14,10 @@ import { brand } from "../data/content.js";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "foodcostrescue",
+  name: "supplynegotiator",
   url: brand.domain,
   description:
-    "foodcostrescue audits restaurant supplier invoices, benchmarks pricing against fair market data, and recovers overcharges.",
+    "supplynegotiator audits restaurant supplier invoices, benchmarks pricing against fair market data, and recovers overcharges.",
   areaServed: "US",
 };
 
@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="foodcostrescue — stop overpaying your food distributor"
+        title="supplynegotiator — stop overpaying your food distributor"
         description="We audit your restaurant's supplier invoices, benchmark every line item against fair market pricing, and recover money you're being overcharged."
         path="/"
         jsonLd={jsonLd}
