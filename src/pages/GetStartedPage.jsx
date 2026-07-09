@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js/min";
@@ -7,6 +7,7 @@ import EmbeddedCheckout from "../components/EmbeddedCheckout.jsx";
 import { getStartedFlow } from "../data/content.js";
 import { uploadInvoiceFiles } from "../lib/blobUpload.js";
 import { phoneCountries, DEFAULT_PHONE_COUNTRY } from "../lib/phoneCountries.js";
+import { getStripe } from "../lib/stripeClient.js";
 import styles from "./GetStartedPage.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -123,11 +124,21 @@ export default function GetStartedPage() {
   const uploadPromiseRef = useRef(null);
   const uploadedFilesRef = useRef([]);
 
-  // Caches the in-flight/created Checkout Session for the current visit to
-  // step 3, so React re-rendering (or a dev-mode StrictMode double-effect)
-  // doesn't create a second session for the same data. Cleared whenever we
-  // freshly (re-)enter step 3 so edited form data always gets a fresh one.
+  // Caches the in-flight/created Checkout Session for the current form
+  // submission, so React re-rendering (or a dev-mode StrictMode
+  // double-effect) doesn't create a second session for the same data.
+  // Cleared on every step 1 (re-)submit so edited form data always gets a
+  // fresh session — see handleStep1Submit, which also warms this cache
+  // proactively rather than waiting for step 3 to mount.
   const clientSecretCacheRef = useRef(null);
+
+  // Start loading the Stripe.js library the moment someone lands on this
+  // page, not when step 3 mounts. It's ~150KB from Stripe's CDN and was
+  // otherwise sitting entirely on the critical path between clicking
+  // "Continue" on step 2 and the payment form actually appearing.
+  useEffect(() => {
+    getStripe();
+  }, []);
 
   function updateField(name, value) {
     setForm((f) => ({ ...f, [name]: value }));
@@ -165,12 +176,23 @@ export default function GetStartedPage() {
     if (files.length && uploadStatus === "idle") {
       startUpload(files);
     }
+
+    // Also kick off Checkout Session creation now, in parallel with the
+    // upload, instead of waiting until step 3 mounts. Reading + agreeing to
+    // the terms on step 2 usually takes longer than this round trip, so by
+    // the time someone clicks "Continue" the session is often already
+    // cached and step 3 can mount the payment form instantly. Clear any
+    // stale cached session first — this fires on every (re)submit of step 1,
+    // including after going back and editing details, so edited data always
+    // gets its own fresh session instead of reusing an old one.
+    clientSecretCacheRef.current = null;
+    fetchClientSecret().catch(() => {});
+
     setStep(2);
   }
 
   function handleStep2Continue() {
     if (!agreed) return;
-    clientSecretCacheRef.current = null;
     setStep(3);
   }
 

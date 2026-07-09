@@ -10,6 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Warms the connection to Stripe's domains ahead of time so the DNS/TLS
+         handshake isn't sitting on the critical path when Get Started's embedded
+         checkout actually needs them (js.stripe.com for the library, api.stripe.com
+         for session calls, m.stripe.network for Stripe's fraud-detection beacon). -->
+    <link rel="preconnect" href="https://js.stripe.com" />
+    <link rel="preconnect" href="https://api.stripe.com" />
+    <link rel="preconnect" href="https://m.stripe.network" />
     <title>supplynegotiator — stop overpaying your food distributor</title>
   </head>
   <body>
