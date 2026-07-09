@@ -1,16 +1,23 @@
+import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import BlogIndexPage from "./pages/BlogIndexPage.jsx";
-import BlogPostPage from "./pages/BlogPostPage.jsx";
-import GuaranteeDetailPage from "./pages/GuaranteeDetailPage.jsx";
-import PricingHowItWorksPage from "./pages/PricingHowItWorksPage.jsx";
-import GetStartedPage from "./pages/GetStartedPage.jsx";
-import GetStartedSuccessPage from "./pages/GetStartedSuccessPage.jsx";
-import GetStartedCancelledPage from "./pages/GetStartedCancelledPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import LegalPage from "./pages/LegalPage.jsx";
 import { terms, privacy } from "./data/legal.js";
+
+// Only the homepage loads eagerly (it's the entry point almost every visitor
+// hits first). Everything else is route-split so a visitor only downloads
+// the page they're actually on — this is what keeps libphonenumber-js
+// (Get Started's phone validation) and framer-motion-heavy secondary pages
+// out of the initial bundle. See Layout.jsx for the <Suspense> boundary.
+const BlogIndexPage = lazy(() => import("./pages/BlogIndexPage.jsx"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage.jsx"));
+const GuaranteeDetailPage = lazy(() => import("./pages/GuaranteeDetailPage.jsx"));
+const PricingHowItWorksPage = lazy(() => import("./pages/PricingHowItWorksPage.jsx"));
+const GetStartedPage = lazy(() => import("./pages/GetStartedPage.jsx"));
+const GetStartedSuccessPage = lazy(() => import("./pages/GetStartedSuccessPage.jsx"));
+const GetStartedCancelledPage = lazy(() => import("./pages/GetStartedCancelledPage.jsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
+const LegalPage = lazy(() => import("./pages/LegalPage.jsx"));
 
 function App() {
   return (
