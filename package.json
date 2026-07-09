@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:full": "vercel dev",
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "vite build",
     "lint": "oxlint",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.4",
     "oxlint": "^1.71.0",
+    "vercel": "^54.21.1",
     "vite": "^5.4.11"
   }
 }
