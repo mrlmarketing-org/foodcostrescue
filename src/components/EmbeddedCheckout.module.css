@@ -1,0 +1,25 @@
+.wrap {
+  position: relative;
+  min-height: 320px;
+}
+
+.loading {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+  padding: 80px 0;
+}
+
+.error {
+  text-align: center;
+  color: #c0392b;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 14px 16px;
+  background: #fdecea;
+  border-radius: var(--radius-sm);
+}
+
+.mount {
+  width: 100%;
+}

@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^9.9.0",
     "@vercel/blob": "^2.6.1",
     "framer-motion": "^12.42.2",
     "libphonenumber-js": "^1.13.8",

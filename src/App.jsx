@@ -14,8 +14,7 @@ const BlogPostPage = lazy(() => import("./pages/BlogPostPage.jsx"));
 const GuaranteeDetailPage = lazy(() => import("./pages/GuaranteeDetailPage.jsx"));
 const PricingHowItWorksPage = lazy(() => import("./pages/PricingHowItWorksPage.jsx"));
 const GetStartedPage = lazy(() => import("./pages/GetStartedPage.jsx"));
-const GetStartedSuccessPage = lazy(() => import("./pages/GetStartedSuccessPage.jsx"));
-const GetStartedCancelledPage = lazy(() => import("./pages/GetStartedCancelledPage.jsx"));
+const GetStartedReturnPage = lazy(() => import("./pages/GetStartedReturnPage.jsx"));
 const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 const LegalPage = lazy(() => import("./pages/LegalPage.jsx"));
 
@@ -29,8 +28,7 @@ function App() {
         <Route path="/guarantee/:slug" element={<GuaranteeDetailPage />} />
         <Route path="/pricing/how-it-works" element={<PricingHowItWorksPage />} />
         <Route path="/get-started" element={<GetStartedPage />} />
-        <Route path="/get-started/success" element={<GetStartedSuccessPage />} />
-        <Route path="/get-started/cancelled" element={<GetStartedCancelledPage />} />
+        <Route path="/get-started/return" element={<GetStartedReturnPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<LegalPage doc={terms} />} />
         <Route path="/privacy" element={<LegalPage doc={privacy} />} />

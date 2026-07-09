@@ -37,7 +37,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Embedded mode: the payment form itself renders inline on our own page
+    // (see src/components/EmbeddedCheckout.jsx) instead of redirecting the
+    // whole browser to a Stripe-hosted page. Stripe still requires one
+    // redirect once the payment actually completes (or needs an extra step
+    // like 3D Secure) — that's what return_url is for. There's no separate
+    // cancel_url in this mode: backing out before submitting payment never
+    // leaves this page at all, so it's just normal in-app navigation.
     const session = await stripe.checkout.sessions.create({
+      ui_mode: "embedded_page",
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [
@@ -51,8 +59,7 @@ export default async function handler(req, res) {
         },
       ],
       customer_email: form.email,
-      success_url: `${siteOrigin}/get-started/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteOrigin}/get-started/cancelled?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `${siteOrigin}/get-started/return?session_id={CHECKOUT_SESSION_ID}`,
       metadata: {
         firstName: form.firstName,
         lastName: form.lastName,
@@ -66,7 +73,7 @@ export default async function handler(req, res) {
       },
     });
 
-    res.status(200).json({ url: session.url });
+    res.status(200).json({ clientSecret: session.client_secret });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

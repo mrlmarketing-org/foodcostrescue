@@ -5,13 +5,14 @@ import { buildAuditEmailHtml } from "./_lib/emailTemplate.js";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Called by the success page once Stripe redirects back. Re-fetches the
-// session from Stripe (source of truth for payment_status) rather than
-// trusting anything the client claims, then sends the notification email —
-// this is the only point in the flow where the email actually goes out.
+// Called by the return page as the second step ("Finalizing…"), after
+// verify-payment.js has already confirmed the session is paid. Re-checks
+// payment_status independently anyway rather than trusting the client's
+// word for it — this is the only point in the flow where the email actually
+// goes out.
 //
 // Known limitation: there's no database to record "already processed", so a
-// page refresh on /get-started/success will re-send the email. Acceptable
+// page refresh on /get-started/return will re-send the email. Acceptable
 // for now; a persistence layer would be the fix if that becomes a problem.
 export default async function handler(req, res) {
   if (req.method !== "GET" && req.method !== "POST") {

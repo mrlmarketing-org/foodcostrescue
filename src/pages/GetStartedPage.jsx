@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js/min";
 import Seo from "../components/Seo.jsx";
+import EmbeddedCheckout from "../components/EmbeddedCheckout.jsx";
 import { getStartedFlow } from "../data/content.js";
 import { uploadInvoiceFiles } from "../lib/blobUpload.js";
 import { phoneCountries, DEFAULT_PHONE_COUNTRY } from "../lib/phoneCountries.js";
@@ -122,8 +123,11 @@ export default function GetStartedPage() {
   const uploadPromiseRef = useRef(null);
   const uploadedFilesRef = useRef([]);
 
-  const [payStatus, setPayStatus] = useState("idle"); // idle | loading | error
-  const [payError, setPayError] = useState(null);
+  // Caches the in-flight/created Checkout Session for the current visit to
+  // step 3, so React re-rendering (or a dev-mode StrictMode double-effect)
+  // doesn't create a second session for the same data. Cleared whenever we
+  // freshly (re-)enter step 3 so edited form data always gets a fresh one.
+  const clientSecretCacheRef = useRef(null);
 
   function updateField(name, value) {
     setForm((f) => ({ ...f, [name]: value }));
@@ -166,15 +170,16 @@ export default function GetStartedPage() {
 
   function handleStep2Continue() {
     if (!agreed) return;
+    clientSecretCacheRef.current = null;
     setStep(3);
   }
 
-  async function handlePay() {
-    if (!agreed) return;
-    setPayStatus("loading");
-    setPayError(null);
+  // Passed to <EmbeddedCheckout>, which calls this whenever Stripe.js needs
+  // a client secret to mount the payment form.
+  const fetchClientSecret = useCallback(async () => {
+    if (clientSecretCacheRef.current) return clientSecretCacheRef.current;
 
-    try {
+    const promise = (async () => {
       let fileResults = uploadedFilesRef.current;
       if (uploadPromiseRef.current && uploadStatus !== "done") {
         fileResults = await uploadPromiseRef.current;
@@ -193,12 +198,31 @@ export default function GetStartedPage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Something went wrong. Please try again.");
+      return data.clientSecret;
+    })();
 
-      window.location.href = data.url;
-    } catch (err) {
-      setPayStatus("error");
-      setPayError(err.message || "Something went wrong. Please try again.");
-    }
+    clientSecretCacheRef.current = promise;
+    // Let a failed attempt be retried (Stripe.js will call this again if it throws).
+    promise.catch(() => {
+      clientSecretCacheRef.current = null;
+    });
+    return promise;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form, uploadStatus]);
+
+  // Best-effort immediate cleanup when someone explicitly gives up on the
+  // flow after files are already uploaded. Not load-bearing for correctness
+  // (api/cron/cleanup-orphaned-uploads.js is the real safety net) — this
+  // just makes the common case tidy up right away instead of waiting for
+  // the next scheduled sweep.
+  function handleLeaveFlow() {
+    const fileUrls = uploadedFilesRef.current.map((f) => f.url);
+    if (!fileUrls.length) return;
+    fetch("/api/cancel-upload", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fileUrls }),
+    }).catch(() => {});
   }
 
   return (
@@ -207,7 +231,7 @@ export default function GetStartedPage() {
 
       <article className={`section ${styles.section}`}>
         <div className={`container ${styles.container}`}>
-          <Link to="/" className={styles.back}>
+          <Link to="/" className={styles.back} onClick={handleLeaveFlow}>
             ← Back to home
           </Link>
 
@@ -369,24 +393,12 @@ export default function GetStartedPage() {
 
                 {uploadStatus === "uploading" && <p className={styles.statusNote}>Uploading your files…</p>}
                 {uploadStatus === "error" && <p className={styles.errorNote}>{uploadError}</p>}
-                {payStatus === "error" && <p className={styles.errorNote}>{payError}</p>}
+
+                <EmbeddedCheckout key={step} fetchClientSecret={fetchClientSecret} />
 
                 <div className={styles.stepActions}>
-                  <button
-                    type="button"
-                    className={styles.backStepBtn}
-                    onClick={() => setStep(2)}
-                    disabled={payStatus === "loading"}
-                  >
+                  <button type="button" className={styles.backStepBtn} onClick={() => setStep(2)}>
                     ← Back
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    disabled={!agreed || payStatus === "loading"}
-                    onClick={handlePay}
-                  >
-                    {payStatus === "loading" ? "Redirecting to payment…" : "Pay & continue"}
                   </button>
                 </div>
               </div>
