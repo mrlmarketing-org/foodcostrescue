@@ -25,6 +25,8 @@ export default function ContactPage() {
     const form = e.target;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const bestTimeToCall = form.bestTimeToCall.value.trim();
     const message = form.message.value.trim();
 
     setStatus("sending");
@@ -34,7 +36,7 @@ export default function ContactPage() {
       const res = await fetch("/api/send-contact-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, phone, bestTimeToCall, message }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Something went wrong. Please try again.");
@@ -78,12 +80,30 @@ export default function ContactPage() {
                 />
               </label>
               <label className={styles.field}>
+                <span>Phone (optional)</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 123-4567"
+                  disabled={status === "sending"}
+                />
+              </label>
+              <label className={styles.field}>
+                <span>Best time to call (optional)</span>
+                <input
+                  type="text"
+                  name="bestTimeToCall"
+                  placeholder="e.g. weekdays after 2pm"
+                  disabled={status === "sending"}
+                />
+              </label>
+              <label className={styles.field}>
                 <span>Message</span>
                 <textarea
                   name="message"
                   rows={5}
                   required
-                  placeholder="Tell us a bit about your invoices…"
+                  placeholder="How can we help?"
                   disabled={status === "sending"}
                 />
               </label>
@@ -91,10 +111,9 @@ export default function ContactPage() {
                 {status === "sending" ? "Sending…" : "Send message"} <span aria-hidden>→</span>
               </button>
               {status === "success" && (
-                <p className={styles.formSuccess}>Thanks — your message is on its way to our team.</p>
+                <p className={styles.formSuccess}>Thank you. We'll get back to you within one business day.</p>
               )}
               {status === "error" && <p className={styles.formError}>{error}</p>}
-              {status === "idle" && <p className={styles.formNote}>We'll get back to you within one business day.</p>}
             </form>
           </motion.div>
 

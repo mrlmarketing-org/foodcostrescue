@@ -8,8 +8,16 @@ function esc(value) {
   ));
 }
 
-export function buildContactEmailHtml({ name, email, message }) {
+export function buildContactEmailHtml({ name, email, phone, bestTimeToCall, message }) {
   const messageHtml = esc(message).replace(/\n/g, "<br>");
+
+  const optionalRow = (label, value) =>
+    value
+      ? `<tr>
+              <td style="padding:10px 16px;border-bottom:1px solid #E1E5EA;color:#5B6B7C;font-size:13px;font-weight:700;white-space:nowrap;vertical-align:top;">${esc(label)}</td>
+              <td style="padding:10px 16px;border-bottom:1px solid #E1E5EA;color:#334155;font-size:14px;">${esc(value)}</td>
+            </tr>`
+      : "";
 
   return `<!doctype html>
 <html>
@@ -37,6 +45,8 @@ export function buildContactEmailHtml({ name, email, message }) {
               <td style="padding:10px 16px;border-bottom:1px solid #E1E5EA;color:#5B6B7C;font-size:13px;font-weight:700;white-space:nowrap;vertical-align:top;">Email</td>
               <td style="padding:10px 16px;border-bottom:1px solid #E1E5EA;color:#334155;font-size:14px;">${esc(email)}</td>
             </tr>
+            ${optionalRow("Phone", phone)}
+            ${optionalRow("Best time to call", bestTimeToCall)}
           </table>
         </td>
       </tr>

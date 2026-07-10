@@ -391,8 +391,8 @@ export const finalCta = {
 // launch (user chose to proceed with clear placeholders for now).
 export const contact = {
   kicker: "Contact",
-  headline: "Let's talk about your invoices.",
-  body: "Send us a message and we'll get back to you within one business day — or send us your invoices directly if you'd rather skip the back-and-forth.",
+  headline: "Have a question? We're here to help.",
+  body: "Send us a message and we'll respond within one business day. If you'd prefer to speak by phone, let us know the best time to reach you and we'll follow up.",
   email: "hello@supplynegotiator.com",
   // Dummy placeholder value — swap for the real address before launch.
   address: "248 Market Street, Suite 310, San Francisco, CA 94105",

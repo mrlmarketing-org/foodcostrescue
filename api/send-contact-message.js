@@ -12,9 +12,11 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { name, email, message } = req.body || {};
+  const { name, email, phone, bestTimeToCall, message } = req.body || {};
   const trimmedName = String(name || "").trim();
   const trimmedEmail = String(email || "").trim();
+  const trimmedPhone = String(phone || "").trim();
+  const trimmedBestTimeToCall = String(bestTimeToCall || "").trim();
   const trimmedMessage = String(message || "").trim();
 
   if (!trimmedName) {
@@ -38,7 +40,13 @@ export default async function handler(req, res) {
       to: process.env.RESEND_TO_EMAIL,
       replyTo: trimmedEmail,
       subject: `New contact message from ${trimmedName}`,
-      html: buildContactEmailHtml({ name: trimmedName, email: trimmedEmail, message: trimmedMessage }),
+      html: buildContactEmailHtml({
+        name: trimmedName,
+        email: trimmedEmail,
+        phone: trimmedPhone,
+        bestTimeToCall: trimmedBestTimeToCall,
+        message: trimmedMessage,
+      }),
     });
 
     res.status(200).json({ ok: true });
