@@ -151,3 +151,12 @@ export function IconX(props) {
     </svg>
   );
 }
+
+export function IconFacebook(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <path d="M13.5 20v-6.5h2.2l.3-2.5h-2.5V9.4c0-.72.2-1.2 1.24-1.2H16V6c-.22-.03-.97-.1-1.85-.1-1.83 0-3.08 1.12-3.08 3.17V11H9v2.5h2.07V20" />
+    </svg>
+  );
+}

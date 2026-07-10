@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
 import { contact } from "../data/content.js";
-import { IconMail, IconMapPin, IconInstagram, IconLinkedIn, IconX } from "../components/Icons.jsx";
+import { IconMail, IconMapPin, IconInstagram, IconFacebook } from "../components/Icons.jsx";
 import GetStartedButton from "../components/GetStartedButton.jsx";
 import { useIsMobile } from "../hooks/useIsMobile.js";
 import { reveal } from "../lib/motionPresets.js";
@@ -11,8 +11,7 @@ import styles from "./ContactPage.module.css";
 
 const socialIconMap = {
   instagram: IconInstagram,
-  linkedin: IconLinkedIn,
-  x: IconX,
+  facebook: IconFacebook,
 };
 
 export default function ContactPage() {

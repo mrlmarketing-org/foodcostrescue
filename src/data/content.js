@@ -397,9 +397,8 @@ export const contact = {
   // Dummy placeholder value — swap for the real address before launch.
   address: "248 Market Street, Suite 310, San Francisco, CA 94105",
   socials: [
-    { label: "Instagram", icon: "instagram", href: "#" },
-    { label: "LinkedIn", icon: "linkedin", href: "#" },
-    { label: "X", icon: "x", href: "#" },
+    { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/supplynegotiator" },
+    { label: "Facebook", icon: "facebook", href: "#" },
   ],
 };
 
