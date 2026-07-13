@@ -32,15 +32,15 @@ export const nav = {
 
 // Footer-only — deliberately left out of the top nav.
 export const legalLinks = [
-  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Terms of Service", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy" },
 ];
 
 export const hero = {
   eyebrow: "Stop overpaying your food distributor.",
-  headline: "We audit your supplier's invoices and get back every dollar you're overpaid.",
+  headline: "You're overpaying your food distributor right now.",
   subhead:
-    "Restaurants buying bulk from big distributors are routinely overcharged — random price hikes, broken contract terms, fees that shouldn't be there. We benchmark every invoice against fair market pricing, show you exactly where you're losing money, and negotiate the recovery on your behalf.",
+    "Distributors overcharge in quiet ways: prices climb mid-contract, fees appear without explanation, and a busy operator rarely catches them — but that's exactly what we do for you. We pull your invoices, measure every line against real market pricing, and recover what you were overcharged.",
   primaryCta: "Get Started Now",
   secondaryCta: "See how it works",
 };

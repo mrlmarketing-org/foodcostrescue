@@ -1,81 +1,200 @@
-// Terms is still placeholder boilerplate, NOT reviewed by a lawyer — replace
-// before launch. Privacy is the counsel-drafted text supplied by the client.
-//
 // Both docs share one content-block schema so LegalPage.jsx has a single
 // render path: each section is a heading plus an ordered list of blocks —
 // { type: "p", text, bold? }, { type: "list", items }, or
 // { type: "heading", text } for a sub-heading within a section.
+//
+// Terms text below is sourced verbatim from the counsel-drafted "TOS draft
+// food service" document (dated July 10, 2026), with numbered sub-clauses
+// (2.1, 3.1, etc.) split into heading+paragraph pairs to match this file's
+// existing rendering pattern — not re-drafted or summarized.
 
 export const terms = {
-  title: "Terms & Conditions",
+  title: "Terms of Service",
   path: "/terms",
+  effectiveDate: "July 10, 2026",
+  updatedDate: "July 9, 2026",
   intro:
-    "These Terms & Conditions (\"Terms\") govern your use of the supplynegotiator website and invoice audit services (the \"Service\"). By booking a call, submitting invoices, or otherwise using the Service, you agree to these Terms.",
+    "These Terms of Service (\"Terms\") govern your access to and use of Supply Negotiator's website and invoice audit and recovery services (\"Services\"). By submitting the qualifying form, submitting invoices, accepting these Terms, or otherwise engaging our Services, you (\"Client,\" \"you,\" or \"your\") agree to be bound by these Terms. If you do not agree, do not use the Services.",
   sections: [
     {
-      heading: "1. Description of Service",
+      heading: "1. Description of Services",
       blocks: [
         {
           type: "p",
-          text: "supplynegotiator audits a restaurant's supplier invoices, benchmarks pricing against market data, and helps identify and recover overcharges. The Service includes a one-time audit fee and, where savings are found, a percentage-based recovery fee, as described on our Pricing page.",
+          text: "Supply Negotiator reviews Client's supplier invoices, benchmarks pricing and contract terms against market data, and identifies potential overcharges, expired contract rates, missing rebates, and improper fees (\"Audit\"). Where overcharges are identified, Supply Negotiator may contact Client's distributor(s) on Client's behalf, or advise Client directly, to pursue credits, refunds, or corrected go-forward pricing (\"Recovery\").",
+        },
+        {
+          type: "p",
+          text: "Supply Negotiator is not a law firm, accounting firm, or licensed financial advisor, and the Services do not constitute legal, tax, or accounting advice.",
         },
       ],
     },
     {
-      heading: "2. Fees & Payment",
+      heading: "2. Client Documents and Authorization",
       blocks: [
+        { type: "heading", text: "2.1 Documents Provided" },
         {
           type: "p",
-          text: "The audit fee is due upfront and is fully refundable if no savings are identified and confirmed. Where savings are confirmed, the audit fee is credited against the applicable recovery fee, and the remaining recovery fee becomes due as described in our Guarantee pages.",
+          text: "Client will provide Supply Negotiator with supplier invoices and related documents (e.g., contracts, rebate agreements) reasonably necessary to perform the Audit. Supply Negotiator does not require or request access to Client's bank accounts or accounting systems.",
+        },
+        { type: "heading", text: "2.2 Authorization Act" },
+        {
+          type: "p",
+          text: "By engaging Supply Negotiator for Recovery services, Client authorizes Supply Negotiator to contact Client's distributor(s) and represent Client's interests in seeking credits, refunds, or corrected pricing. Client may revoke this authorization in writing at any time, provided any Fees already earned under Section 3 remain due.",
+        },
+        { type: "heading", text: "2.3 Accuracy" },
+        {
+          type: "p",
+          text: "Client represents that documents provided are accurate, and that Client has the right to share them with Supply Negotiator.",
         },
       ],
     },
     {
-      heading: "3. Client Responsibilities",
+      heading: "3. Fees",
       blocks: [
+        { type: "heading", text: "3.1 Audit Fee" },
         {
           type: "p",
-          text: "You agree to provide accurate and complete invoice data, and to respond to reasonable requests for clarification during the audit process. supplynegotiator is not responsible for inaccuracies arising from incomplete or incorrect information provided by the client.",
+          text: "Client pays a flat, one-time fee of $150 (\"Audit Fee\"), due upon engagement, in exchange for a written benchmarking report (\"Report\").",
+        },
+        { type: "heading", text: "3.2 Refund Condition" },
+        {
+          type: "p",
+          text: "If the Audit does not identify any savings opportunities, the Audit Fee is refunded in full, no questions asked. Client retains the Report regardless of outcome.",
+        },
+        { type: "heading", text: "3.3 Recovery Fee" },
+        {
+          type: "p",
+          text: "The Recovery Fee described below applies only once Supply Negotiator has recovered something for Client — not merely identified a potential saving. If Supply Negotiator identifies and confirms savings that are actually recovered, Client owes a Recovery Fee calculated as set out below, and the Audit Fee already paid is credited against the Recovery Fee owed (Client is never charged both in full).",
+        },
+        {
+          type: "list",
+          items: [
+            "Hard credits or refunds issued by the distributor for past overcharges: 30% of the credited/refunded amount — Audit Fee credited against this first",
+            "Locked go-forward rate correction on a specific item (old price vs. new negotiated price × expected volume, fixed 12-month term): 25% of the calculated savings over the defined 12-month term — Audit Fee credited against this first",
+          ],
+        },
+        { type: "heading", text: "3.4 How Savings Are Calculated" },
+        {
+          type: "p",
+          text: "Savings are determined at the point when a specific overcharge is identified and resolved — either through a direct credit/refund from the distributor, or through a corrected rate for a specific item calculated against projected volume over a defined term. Savings are not calculated by comparing total invoice amounts over time, since totals fluctuate due to market factors (seasonality, fuel costs, weather, etc.) unrelated to Supply Negotiator's work. Subsequent market-driven price changes do not alter savings already identified and confirmed.",
+        },
+        { type: "heading", text: "3.5 Payment Terms" },
+        {
+          type: "p",
+          text: "Recovery Fees are due within fifteen (15) days of a credit being issued, a refund being received, or a corrected rate taking effect, as applicable.",
+        },
+        { type: "heading", text: "3.6 Multiple Locations" },
+        {
+          type: "p",
+          text: "Supply Negotiator currently serves single-location independent restaurants under the flat fee model described above; volume-based or multi-location pricing tiers do not apply. If Client operates in more than one location, pricing will be agreed in writing before any Audit begins.",
         },
       ],
     },
     {
-      heading: "4. Intellectual Property",
+      heading: "4. No Guarantee of Recovery",
       blocks: [
         {
           type: "p",
-          text: "The written report produced from your audit is yours to keep and use as you see fit. supplynegotiator retains ownership of its underlying benchmarking methodology, pricing data, and analysis tools.",
+          text: "Supply Negotiator will use commercially reasonable efforts to identify overcharges and pursue recovery but does not guarantee that any distributor will agree to issue a credit, refund, or corrected rate. Distributors are independent third parties not controlled by Supply Negotiator. If no savings are confirmed, the Client's sole remedy is the Audit Fee refund described in Section 3.2.",
         },
       ],
     },
     {
-      heading: "5. Limitation of Liability",
+      heading: "5. Data Handling and Confidentiality",
       blocks: [
         {
           type: "p",
-          text: "The Service is provided on a best-efforts basis. supplynegotiator makes no guarantee of a specific dollar recovery amount and is not liable for a distributor's refusal to honor a credit, refund, or corrected rate.",
+          text: "5.1 Supply Negotiator will treat Client's invoices and related documents as confidential and use them solely to perform the Services.",
+        },
+        {
+          type: "p",
+          text: "5.2 Supply Negotiator retains Client invoices and related documents only as long as reasonably necessary to perform the Services and, where a Recovery Fee applies, to substantiate the amount owed. Documents are stored using industry-standard encryption and access controls and are deleted within thirty (30) days after the engagement concludes, or sooner upon Client's written request, except where retention is required by law.",
+        },
+        {
+          type: "p",
+          text: "5.3 Supply Negotiator will not share Client's invoice data with other clients or third parties except distributors directly involved in a Recovery effort, or as required by law.",
         },
       ],
     },
     {
-      heading: "6. Termination",
+      heading: "6. Report Ownership",
       blocks: [
         {
           type: "p",
-          text: "Either party may end an engagement at any time. Fees already earned under the terms of the Guarantee remain payable.",
+          text: "The Report is Client's to keep and use for any lawful purpose (including as leverage with a distributor or to evaluate alternative suppliers), regardless of whether Recovery is pursued or successful. Supply Negotiator retains the underlying benchmarking methodology and data as its own confidential and proprietary information.",
         },
       ],
     },
     {
-      heading: "7. Governing Law",
-      blocks: [{ type: "p", text: "[Placeholder: state/country of governing law to be confirmed before launch.]" }],
-    },
-    {
-      heading: "8. Changes to These Terms",
+      heading: "7. Client Responsibilities",
       blocks: [
         {
           type: "p",
-          text: "We may update these Terms from time to time. Continued use of the Service after changes are posted constitutes acceptance of the revised Terms.",
+          text: "Client agrees to provide accurate, complete invoices and related documents in a timely manner, and to respond to reasonable requests for clarification needed to complete the Audit or pursue Recovery.",
+        },
+      ],
+    },
+    {
+      heading: "8. Disclaimer of Warranties",
+      blocks: [
+        {
+          type: "p",
+          text: "THE SERVICES AND REPORT ARE PROVIDED \"AS IS.\" SUPPLY NEGOTIATOR DOES NOT WARRANT THAT ALL OVERCHARGES WILL BE IDENTIFIED, THAT ANY DISTRIBUTOR WILL AGREE TO A CREDIT, REFUND, OR RATE CORRECTION, OR THAT BENCHMARK PRICING DATA REFLECTS EVERY MARKET CONDITION.",
+        },
+      ],
+    },
+    {
+      heading: "9. Limitation of Liability",
+      blocks: [
+        {
+          type: "p",
+          text: "TO THE MAXIMUM EXTENT PERMITTED BY LAW, SUPPLY NEGOTIATOR'S TOTAL LIABILITY ARISING OUT OF THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE TOTAL FEES PAID BY CLIENT TO SUPPLY NEGOTIATOR IN THE 12 MONTHS PRECEDING THE CLAIM. SUPPLY NEGOTIATOR SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING DAMAGE TO CLIENT'S RELATIONSHIP WITH ANY DISTRIBUTOR ARISING FROM RECOVERY EFFORTS.",
+        },
+      ],
+    },
+    {
+      heading: "10. Indemnification",
+      blocks: [
+        {
+          type: "p",
+          text: "Client agrees to indemnify Supply Negotiator against claims arising from inaccurate documents or information Client provides, or from Client's own communications with a distributor outside of Supply Negotiator's involvement.",
+        },
+      ],
+    },
+    {
+      heading: "11. Term and Termination",
+      blocks: [
+        {
+          type: "p",
+          text: "Either party may terminate the engagement in writing at any time. Fees earned prior to termination under Section 3 remain due. The engagement concludes upon delivery of the Report and completion of any agreed Recovery effort. Supply Negotiator does not provide automatic ongoing monitoring; any continued or recurring service must be agreed separately in writing.",
+        },
+      ],
+    },
+    {
+      heading: "12. Governing Law and Dispute Resolution",
+      blocks: [
+        {
+          type: "p",
+          text: "These Terms are governed by the laws of the State of Illinois, without regard to its conflict-of-laws rules. Any dispute arising out of or relating to these Terms or the Services shall be resolved by binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules, seated in Chicago, Illinois, except that either party may bring an individual claim in small-claims court. Claims must be brought in an individual capacity, and not as part of any class, collective, or representative action.",
+        },
+      ],
+    },
+    {
+      heading: "13. Changes to These Terms",
+      blocks: [
+        {
+          type: "p",
+          text: "We may update these Terms from time to time. Continued use of the Services after changes are posted constitutes acceptance.",
+        },
+      ],
+    },
+    {
+      heading: "14. Contact",
+      blocks: [
+        {
+          type: "p",
+          text: "Questions about these Terms can be directed to admin@supplynegotiator.com.",
         },
       ],
     },
@@ -291,9 +410,8 @@ export const privacy = {
       blocks: [
         {
           type: "p",
-          text: "For privacy questions or to exercise your rights, contact us at privacy@supplynegotiator.com.",
+          text: "For privacy questions or to exercise your rights, contact us at admin@supplynegotiator.com.",
         },
-        { type: "p", bold: true, text: "[Confirm the privacy contact address you want to publish.]" },
       ],
     },
   ],
