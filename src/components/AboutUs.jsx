@@ -2,10 +2,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { aboutUs } from "../data/content.js";
 import { images } from "../assets/images/index.js";
-import { IconCheck } from "./Icons.jsx";
+import { IconCheck, IconTrendUp, IconContractMismatch, IconPercentFlag, IconReceipt } from "./Icons.jsx";
 import { useIsMobile } from "../hooks/useIsMobile.js";
 import { reveal } from "../lib/motionPresets.js";
 import styles from "./AboutUs.module.css";
+
+const flagIcons = {
+  trendUp: IconTrendUp,
+  contractMismatch: IconContractMismatch,
+  percentFlag: IconPercentFlag,
+  receipt: IconReceipt,
+};
+
+const flagAccents = ["coral", "mint", "sky", "coral"];
 
 export default function AboutUs() {
   const [open, setOpen] = useState(false);
@@ -78,6 +87,29 @@ export default function AboutUs() {
           </a>
         </motion.div>
       </div>
+
+      <motion.div className={`container ${styles.flagsWrap}`} {...reveal(isMobile, { distance: 20, amount: 0.3 })}>
+        <p className={styles.flagsLabel}>What we flag on every invoice</p>
+        <div className={styles.flagsGrid}>
+          {aboutUs.flags.map((flag, i) => {
+            const Icon = flagIcons[flag.icon];
+            const accent = flagAccents[i % flagAccents.length];
+            return (
+              <motion.div
+                key={flag.label}
+                className={styles.flagCard}
+                {...reveal(isMobile, { distance: 16, duration: 0.5, delay: i * 0.07 })}
+              >
+                <span className={`${styles.flagIcon} ${styles[accent]}`}>
+                  <Icon size={20} />
+                </span>
+                <h3 className={styles.flagTitle}>{flag.label}</h3>
+                <p className={styles.flagBody}>{flag.body}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
 
       <motion.div
         className={`container ${styles.calloutRow}`}

@@ -120,6 +120,46 @@ export function IconReceipt(props) {
   );
 }
 
+// "What we flag" icon set — About Us section, one glyph per overcharge type.
+
+export function IconTrendUp(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <path d="M4 16.5 9.5 11l3.5 3.5L20 7" />
+      <path d="M14.5 7h5.5v5.5" />
+    </svg>
+  );
+}
+
+export function IconContractMismatch(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <path d="M6 3h9l3 3v15H6Z" />
+      <path d="M9 16h6" />
+      <path d="m9.8 9.5 4.4 4M14.2 9.5l-4.4 4" />
+    </svg>
+  );
+}
+
+export function IconPercentFlag(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <path d="M6 18 18 6" />
+      <circle cx="8" cy="8" r="2.1" />
+      <circle cx="16" cy="16" r="2.1" />
+    </svg>
+  );
+}
+
+export function IconLock(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <rect x="5" y="10.5" width="14" height="9.5" rx="2" />
+      <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+
 // Social glyphs — symbol only, no wordmarks, so they read at small sizes.
 
 export function IconInstagram(props) {

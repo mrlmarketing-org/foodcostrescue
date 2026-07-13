@@ -80,6 +80,80 @@ export const aboutUs = {
     "Built by restaurant supply-chain people",
   ],
   cta: "See how it works",
+  // The four things called out in bodyMore's "We flag overcharges, expired
+  // contract rates, missing rebates, and fees that shouldn't be there" —
+  // pulled into their own visual row so it isn't buried inside prose.
+  flags: [
+    {
+      icon: "trendUp",
+      label: "Price overcharges",
+      body: "Unit prices that quietly crept up between orders.",
+    },
+    {
+      icon: "contractMismatch",
+      label: "Expired contract rates",
+      body: "Billed at a rate that doesn't match what you signed.",
+    },
+    {
+      icon: "percentFlag",
+      label: "Missing rebates",
+      body: "Volume discounts you earned but never saw credited.",
+    },
+    {
+      icon: "receipt",
+      label: "Unauthorized fees",
+      body: "Surcharges added that were never part of the deal.",
+    },
+  ],
+};
+
+// Invoice mock shown right after About Us, styled as an app screenshot
+// (browser chrome + product UI). Every dollar figure here is a made-up
+// illustration of what a correction looks like — not a real client invoice
+// or a promised recovery amount. `image` keys reference assets/images.
+export const invoiceExample = {
+  kicker: "See it in action",
+  headline: "What a correction actually looks like.",
+  intro: "Every finding turns into a specific, line-by-line case — not just a number on a report.",
+  windowUrl: `app.${brand.name}.com/audits`,
+  cardTitle: "Audited line items",
+  invoiceLabel: "Invoice #7734",
+  cardSub: "Benchmarked against regional fair market pricing",
+  flaggedCount: "3 flagged",
+  rows: [
+    {
+      image: "itemFlankSteak",
+      item: "Beef flank steak, trimmed",
+      detail: "Contract rate $2.85/lb",
+      qty: "30 lb",
+      was: "$102.00",
+      flag: "+$16.50 over contract",
+      now: "$85.50",
+      nowLabel: "Corrected to contract price",
+    },
+    {
+      image: "itemPaperTowelRoll",
+      item: "Paper towels, case",
+      detail: "Billed at an expired contract tier",
+      qty: "4 cases",
+      was: "$88.00",
+      flag: "Off-contract tier",
+      now: "$71.20",
+      nowLabel: "Corrected to contract tier",
+    },
+    {
+      image: "itemDeliveryReceipt",
+      item: "Delivery documentation fee",
+      detail: "Not in your agreement",
+      qty: "1",
+      was: "$19.00",
+      flag: "Unauthorized",
+      now: "$0.00",
+      nowLabel: "Removed",
+    },
+  ],
+  totalLabel: "Recovered on this invoice",
+  totalValue: "$52.30",
 };
 
 export const whatWeAudit = {
@@ -266,6 +340,17 @@ export const feeWalkthrough = {
     auditHint: "Flat and fixed — refunded if we find nothing, credited if we do.",
   },
   ctaText: "Ready to see what your invoices could recover?",
+};
+
+// Short nudge banner between Pricing and Guarantee — the site was light on
+// mid-page CTAs, so this gives visitors who are sold after the pricing cards
+// a "Get Started" without having to scroll all the way to FinalCTA. No body
+// copy here on purpose: "no commitment" framing would be misleading given the
+// audit fee charged upfront (see `pricing` above).
+export const midCta = {
+  kicker: "Ready when you are",
+  headline: "See what your invoices are hiding.",
+  cta: "Get Started Now",
 };
 
 // Guarantee sits right after Pricing, is deliberately left out of the top

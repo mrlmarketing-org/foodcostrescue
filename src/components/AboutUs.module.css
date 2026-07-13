@@ -156,6 +156,86 @@
   }
 }
 
+.flagsWrap {
+  margin-top: 64px;
+}
+
+.flagsLabel {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+.flagsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .flagsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .flagsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flagCard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.flagCard:hover {
+  transform: translateY(-3px);
+}
+
+.flagIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.flagIcon.coral {
+  background: var(--coral-tint);
+  color: var(--coral-deep);
+}
+.flagIcon.mint {
+  background: var(--mint-tint);
+  color: var(--mint-deep);
+}
+.flagIcon.sky {
+  background: var(--sky-tint);
+  color: var(--sky-deep);
+}
+
+.flagTitle {
+  font-size: 15.5px;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.flagBody {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 .calloutRow {
   display: flex;
   justify-content: center;

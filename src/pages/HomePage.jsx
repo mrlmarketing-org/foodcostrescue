@@ -2,9 +2,11 @@ import Seo from "../components/Seo.jsx";
 import Hero from "../components/Hero.jsx";
 import TrustStrip from "../components/TrustStrip.jsx";
 import AboutUs from "../components/AboutUs.jsx";
+import InvoiceExample from "../components/InvoiceExample.jsx";
 import WhatWeAudit from "../components/WhatWeAudit.jsx";
 import HowItWorks from "../components/HowItWorks.jsx";
 import Pricing from "../components/Pricing.jsx";
+import MidCta from "../components/MidCta.jsx";
 import Guarantee from "../components/Guarantee.jsx";
 import WhyUs from "../components/WhyUs.jsx";
 import FAQ from "../components/FAQ.jsx";
@@ -33,9 +35,11 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <AboutUs />
+      <InvoiceExample />
       <WhatWeAudit />
       <HowItWorks />
       <Pricing />
+      <MidCta />
       <Guarantee />
       <WhyUs />
       <FAQ />

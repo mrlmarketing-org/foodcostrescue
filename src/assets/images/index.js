@@ -24,6 +24,9 @@ import howSavings from "./how-savings.jpg";
 import whyPricing from "./why-pricing.jpg";
 import whyBenchmark from "./why-benchmark.jpg";
 import whyCall from "./why-call.jpg";
+import itemDeliveryReceipt from "./item-delivery-receipt.jpg";
+import itemPaperTowelRoll from "./item-paper-towel-roll.jpg";
+import itemFlankSteak from "./item-flank-steak.jpg";
 
 export const images = {
   heroFood,
@@ -52,4 +55,7 @@ export const images = {
   whyPricing,
   whyBenchmark,
   whyCall,
+  itemDeliveryReceipt,
+  itemPaperTowelRoll,
+  itemFlankSteak,
 };
