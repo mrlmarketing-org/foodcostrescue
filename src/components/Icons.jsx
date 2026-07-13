@@ -102,6 +102,14 @@ export function IconMail(props) {
   );
 }
 
+export function IconPhone(props) {
+  return (
+    <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>
+      <path d="M5 4h3l1.5 4.5L7.5 10a11 11 0 0 0 6.5 6.5l1.5-2L20 16v3a2 2 0 0 1-2 2 16 16 0 0 1-15-15 2 2 0 0 1 2-2Z" />
+    </svg>
+  );
+}
+
 export function IconMapPin(props) {
   return (
     <svg {...base} width={props.size ?? 22} height={props.size ?? 22} className={props.className}>

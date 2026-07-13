@@ -9,8 +9,6 @@
 //     monitoring after the initial audit.]" attached to the refund guarantee.
 //     No engagement/monitoring-term copy has been written anywhere on the
 //     site — decide the term and add it to guarantee.items[2].fullBody.
-//   - Contact page phone/address/socials are placeholders (see `contact`
-//     below) pending real business details.
 
 export const brand = {
   name: "supplynegotiator",
@@ -124,21 +122,21 @@ export const invoiceExample = {
     {
       image: "itemFlankSteak",
       item: "Beef flank steak, trimmed",
-      detail: "Contract rate $2.85/lb",
-      qty: "30 lb",
-      was: "$102.00",
-      flag: "+$16.50 over contract",
-      now: "$85.50",
+      detail: "Contract rate $5.60/lb",
+      qty: "100 lb",
+      was: "$980.00",
+      flag: "+$420.00 over contract",
+      now: "$560.00",
       nowLabel: "Corrected to contract price",
     },
     {
       image: "itemPaperTowelRoll",
       item: "Paper towels, case",
       detail: "Billed at an expired contract tier",
-      qty: "4 cases",
-      was: "$88.00",
+      qty: "50 cases",
+      was: "$930.00",
       flag: "Off-contract tier",
-      now: "$71.20",
+      now: "$500.00",
       nowLabel: "Corrected to contract tier",
     },
     {
@@ -146,14 +144,14 @@ export const invoiceExample = {
       item: "Delivery documentation fee",
       detail: "Not in your agreement",
       qty: "1",
-      was: "$19.00",
+      was: "$350.00",
       flag: "Unauthorized",
       now: "$0.00",
       nowLabel: "Removed",
     },
   ],
   totalLabel: "Recovered on this invoice",
-  totalValue: "$52.30",
+  totalValue: "$1,200.00",
 };
 
 export const whatWeAudit = {
@@ -473,15 +471,13 @@ export const finalCta = {
   primaryCta: "Get Started Now",
 };
 
-// Placeholder business details — swap for the real address/socials before
-// launch (user chose to proceed with clear placeholders for now).
 export const contact = {
   kicker: "Contact",
   headline: "Have a question? We're here to help.",
   body: "Send us a message and we'll respond within one business day. If you'd prefer to speak by phone, let us know the best time to reach you and we'll follow up.",
-  email: "hello@supplynegotiator.com",
-  // Dummy placeholder value — swap for the real address before launch.
-  address: "248 Market Street, Suite 310, San Francisco, CA 94105",
+  email: "admin@supplynegotiator.com",
+  phone: "+1 313-241-6083",
+  address: "1000 Brickell Plaza, Unit 2708, Miami, FL 33130",
   socials: [
     { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/supplynegotiator" },
     { label: "Facebook", icon: "facebook", href: "#" },

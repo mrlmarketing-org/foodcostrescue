@@ -16,40 +16,23 @@ export default function WhatWeAudit() {
           <h2>{whatWeAudit.headline}</h2>
         </motion.div>
 
-        <div className={styles.rows}>
-          {whatWeAudit.items.map((item, i) => {
-            const fromLeft = i % 2 === 0;
-            return (
-              <div key={item.title} className={`${styles.row} ${fromLeft ? "" : styles.reverse}`}>
-                <motion.div
-                  className={styles.art}
-                  {...reveal(isMobile, {
-                    axis: "x",
-                    distance: fromLeft ? -80 : 80,
-                    amount: 0.35,
-                    duration: 0.7,
-                  })}
-                >
-                  <img src={images[item.image]} alt={item.title} loading="lazy" />
-                  <span className={styles.number}>0{i + 1}</span>
-                </motion.div>
-
-                <motion.div
-                  className={styles.copy}
-                  {...reveal(isMobile, {
-                    axis: "x",
-                    distance: fromLeft ? 80 : -80,
-                    amount: 0.35,
-                    duration: 0.7,
-                    delay: 0.05,
-                  })}
-                >
-                  <h3 className={styles.title}>{item.title}</h3>
-                  <p className={styles.body}>{item.body}</p>
-                </motion.div>
+        <div className={styles.grid}>
+          {whatWeAudit.items.map((item, i) => (
+            <motion.div
+              key={item.title}
+              className={styles.card}
+              {...reveal(isMobile, { distance: 18, duration: 0.5, delay: i * 0.07 })}
+            >
+              <div className={styles.art}>
+                <img src={images[item.image]} alt="" loading="lazy" />
+                <span className={styles.number}>0{i + 1}</span>
               </div>
-            );
-          })}
+              <div className={styles.copy}>
+                <h3 className={styles.title}>{item.title}</h3>
+                <p className={styles.body}>{item.body}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         <motion.p className={styles.footnote} {...reveal(isMobile, { distance: 0, amount: 0.6, duration: 0.5 })}>
