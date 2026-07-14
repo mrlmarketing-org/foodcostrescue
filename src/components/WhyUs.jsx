@@ -22,6 +22,7 @@ export default function WhyUs() {
         <motion.div className={styles.panel} {...reveal(isMobile, { distance: 30, amount: 0.3 })}>
           <div className={styles.head}>
             <span className="eyebrow">{whyUs.kicker}</span>
+            <h2 className={styles.headline}>{whyUs.headline}</h2>
           </div>
 
           <div className={styles.grid}>

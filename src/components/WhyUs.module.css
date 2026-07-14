@@ -12,8 +12,14 @@
 
 .head {
   text-align: center;
-  padding: 32px 32px 28px;
+  padding: 36px 32px 30px;
   border-bottom: 1px solid var(--line);
+}
+
+.headline {
+  margin-top: 10px;
+  font-size: clamp(24px, 3vw, 30px);
+  color: var(--ink);
 }
 
 .grid {
@@ -63,16 +69,16 @@
 }
 
 .icon.coral {
-  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 75%);
-  color: var(--coral-deep);
+  background: var(--coral-deep);
+  color: var(--paper);
 }
 .icon.mint {
-  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 75%);
-  color: var(--mint-deep);
+  background: var(--mint-deep);
+  color: var(--paper);
 }
 .icon.sky {
-  background: linear-gradient(160deg, var(--sky-tint), var(--paper) 75%);
-  color: var(--sky-deep);
+  background: var(--sky-deep);
+  color: var(--paper);
 }
 
 .title {

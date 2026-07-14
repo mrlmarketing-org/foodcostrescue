@@ -68,11 +68,14 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip, not hidden — setting overflow-x: hidden alone makes the browser
+     auto-compute overflow-y: auto on the other axis, which turns body into
+     a scroll container and breaks position: sticky for the header inside it. */
+  overflow-x: clip;
 }
 
 #root {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {

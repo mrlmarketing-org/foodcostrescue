@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
 import { guarantee } from "../data/content.js";
@@ -11,7 +11,7 @@ export default function GuaranteeDetailPage() {
   const item = guarantee.items.find((g) => g.slug === slug);
 
   if (!item) {
-    return <Navigate to="/#pricing" replace />;
+    return <Navigate to="/#guarantee" replace />;
   }
 
   return (
@@ -20,8 +20,8 @@ export default function GuaranteeDetailPage() {
 
       <article className={`section ${styles.section}`}>
         <div className={`container ${styles.container}`}>
-          <Link to="/#pricing" className={styles.back}>
-            ← Back to pricing
+          <Link to="/#guarantee" className={styles.back}>
+            ← Back to guarantees
           </Link>
 
           <motion.img

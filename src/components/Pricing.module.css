@@ -23,26 +23,29 @@
 }
 
 .card {
+  --card-accent: #f5f3ec;
+  --card-accent-bg: rgba(245, 243, 236, 0.12);
+
+  background: linear-gradient(160deg, #1d2734, #12181f);
   border-radius: var(--radius-md);
   padding: 28px 26px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--line);
+  box-shadow: 0 28px 56px -26px rgba(20, 25, 33, 0.5);
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
 .card.coral {
-  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 55%);
-  border-color: var(--coral);
+  --card-accent: #7db3f2;
+  --card-accent-bg: rgba(125, 179, 242, 0.14);
 }
 .card.mint {
-  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 55%);
-  border-color: var(--mint);
+  --card-accent: #28c840;
+  --card-accent-bg: rgba(40, 200, 64, 0.14);
 }
 .card.sky {
-  background: linear-gradient(160deg, var(--sky-tint), var(--paper) 55%);
-  border-color: var(--sky);
+  --card-accent: #f2a65a;
+  --card-accent-bg: rgba(242, 166, 90, 0.14);
 }
 
 .badge {
@@ -56,30 +59,19 @@
   padding: 5px 11px;
   border-radius: 999px;
   margin-bottom: 8px;
-}
-
-.card.coral .badge {
-  background: var(--coral-tint);
-  color: var(--coral-deep);
-}
-.card.mint .badge {
-  background: var(--mint-tint);
-  color: var(--mint-deep);
-}
-.card.sky .badge {
-  background: var(--sky-tint);
-  color: var(--sky-deep);
+  color: var(--card-accent);
+  background: var(--card-accent-bg);
 }
 
 .cardLabel {
   font-weight: 700;
   font-size: 16px;
-  color: var(--ink);
+  color: #f5f3ec;
 }
 
 .cardSub {
   font-size: 13.5px;
-  color: var(--ink-faint);
+  color: rgba(245, 243, 236, 0.55);
   margin-bottom: 12px;
 }
 
@@ -87,21 +79,12 @@
   font-family: var(--font-display);
   font-size: 40px;
   font-weight: 700;
-}
-
-.card.coral .cardValue {
-  color: var(--coral-deep);
-}
-.card.mint .cardValue {
-  color: var(--mint-deep);
-}
-.card.sky .cardValue {
-  color: var(--sky-deep);
+  color: var(--card-accent);
 }
 
 .cardValueSub {
   font-size: 13px;
-  color: var(--ink-soft);
+  color: rgba(245, 243, 236, 0.66);
   line-height: 1.5;
 }
 

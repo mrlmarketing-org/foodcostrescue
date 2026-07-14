@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
 import styles from "./LegalPage.module.css";
@@ -52,10 +51,6 @@ export default function LegalPage({ doc }) {
 
       <article className={`section ${styles.section}`}>
         <div className={`container ${styles.container}`}>
-          <Link to="/" className={styles.back}>
-            ← Back to home
-          </Link>
-
           <motion.h1
             className={styles.title}
             initial={{ opacity: 0, y: 16 }}

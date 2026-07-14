@@ -70,10 +70,7 @@ export const aboutUs = {
     "Once we know where the money is, we go back to the distributor on your behalf — or arm you with exactly what to say — to recover credits and refunds, and to correct pricing going forward, so the overcharges stop happening.",
   ],
   callout: {
-    body: [
-      "Your distributor's invoice is the only pricing you ever see — so there's no way to tell what's fair. We put yours next to what other restaurants and suppliers actually pay, flag what's off, and ",
-      { text: "negotiate it back for you.", accent: true },
-    ],
+    body: "Your distributor's invoice is the only pricing you ever see — so there's no way to tell what's fair. We put yours next to what other restaurants and suppliers actually pay, flag what's off, and negotiate it back for you.",
   },
   checklist: [
     "Checked against real distributor pricing",
@@ -366,6 +363,7 @@ export const guarantee = {
       title: "Real savings, not market swings",
       summary:
         "We only count savings from issues we actually fix — a credit or a corrected rate — never off a total bill that weather and fuel costs distort. Once secured, it holds.",
+      art: "savings",
       image: "guaranteeSavings",
       linkLabel: "See how it's calculated",
       fullBody: [
@@ -377,6 +375,7 @@ export const guarantee = {
       title: "The findings are yours to keep",
       summary:
         "You walk away with a full written report: every overcharge, line by line, with the dollar figure attached. Yours whether the distributor fixes a thing or not.",
+      art: "keep",
       image: "guaranteeKeep",
       linkLabel: "Read the full guarantee",
       fullBody: [
@@ -388,6 +387,7 @@ export const guarantee = {
       title: "No savings, full refund",
       summary:
         "If we don't confirm real savings, your $150 audit fee comes back in full. If we do, it's credited against our percentage — so the same work is never billed twice.",
+      art: "refund",
       image: "guaranteeRefund",
       linkLabel: "Read the full guarantee",
       fullBody: [
@@ -402,6 +402,7 @@ export const guarantee = {
 
 export const whyUs = {
   kicker: "Why us",
+  headline: "Why restaurants trust us with the math.",
   pillars: [
     {
       title: "We know what distributor pricing should actually look like.",

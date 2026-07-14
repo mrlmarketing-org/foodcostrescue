@@ -15,8 +15,6 @@ const flagIcons = {
   receipt: IconReceipt,
 };
 
-const flagAccents = ["coral", "mint", "sky", "coral"];
-
 function parseCurrency(str) {
   return parseFloat(str.replace(/[^0-9.-]/g, "")) || 0;
 }
@@ -178,14 +176,13 @@ export default function AboutUs() {
         <div className={styles.flagsGrid}>
           {aboutUs.flags.map((flag, i) => {
             const Icon = flagIcons[flag.icon];
-            const accent = flagAccents[i % flagAccents.length];
             return (
               <motion.div
                 key={flag.label}
                 className={styles.flagCard}
                 {...reveal(isMobile, { distance: 16, duration: 0.5, delay: i * 0.07 })}
               >
-                <span className={`${styles.flagIcon} ${styles[accent]}`}>
+                <span className={styles.flagIcon}>
                   <Icon size={20} />
                 </span>
                 <h3 className={styles.flagTitle}>{flag.label}</h3>
@@ -207,19 +204,7 @@ export default function AboutUs() {
         className={`container ${styles.calloutRow}`}
         {...reveal(isMobile, { axis: "x", distance: -80, amount: 0.4, duration: 0.7 })}
       >
-        <div className={styles.callout}>
-          <p className={styles.calloutBody}>
-            {aboutUs.callout.body.map((part, i) =>
-              typeof part === "string" ? (
-                <span key={i}>{part}</span>
-              ) : (
-                <span key={i} className={styles.accent}>
-                  {part.text}
-                </span>
-              )
-            )}
-          </p>
-        </div>
+        <p className={styles.calloutBody}>{aboutUs.callout.body}</p>
       </motion.div>
     </section>
   );

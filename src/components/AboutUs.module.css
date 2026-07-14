@@ -189,19 +189,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 14px;
-}
-
-.flagIcon.coral {
-  background: var(--coral-tint);
-  color: var(--coral-deep);
-}
-.flagIcon.mint {
-  background: var(--mint-tint);
-  color: var(--mint-deep);
-}
-.flagIcon.sky {
-  background: var(--sky-tint);
-  color: var(--sky-deep);
+  background: var(--red-deep);
+  color: var(--paper);
 }
 
 .flagTitle {
@@ -218,15 +207,16 @@
 
 .flagExample {
   margin-top: 14px;
-  background: var(--cream-deep);
-  border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 9px 11px;
+  padding: 9px 11px 9px 13px;
+  border-left: 3px solid var(--red-deep);
+  background: var(--red-tint);
 }
 
 .flagExampleCaption {
   font-size: 10.5px;
-  color: var(--ink-faint);
+  font-weight: 600;
+  color: var(--ink-soft);
   margin-bottom: 4px;
 }
 
@@ -244,9 +234,9 @@
 }
 
 .flagExampleAmount {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--coral-deep);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--red-deep);
   white-space: nowrap;
 }
 
@@ -256,22 +246,13 @@
   margin-top: 64px;
 }
 
-.callout {
-  max-width: 640px;
-  width: 100%;
-  background: linear-gradient(160deg, var(--coral-tint), var(--sky-tint));
-  border: 1px solid var(--coral);
-  border-radius: var(--radius-md);
-  padding: 30px 34px;
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-}
-
 .calloutBody {
+  max-width: 680px;
   color: var(--ink);
-  font-weight: 600;
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* ---- invoice mockup (scaled to fit the About Us art column) ---- */
@@ -283,6 +264,13 @@
   --mock-text: #f5f3ec;
   --mock-text-soft: rgba(245, 243, 236, 0.66);
   --mock-text-faint: rgba(245, 243, 236, 0.42);
+  /* Same reds/greens as the traffic-light dots below, so the flagged/
+     corrected colors read as part of the same "window" system. */
+  --mock-red: #ff5f57;
+  --mock-red-bg: rgba(255, 95, 87, 0.16);
+  --mock-red-border: rgba(255, 95, 87, 0.35);
+  --mock-green: #28c840;
+  --mock-green-bg: rgba(40, 200, 64, 0.12);
 
   position: relative;
   border-radius: 18px;
@@ -312,13 +300,13 @@
 }
 
 .dot.red {
-  background: #ff5f57;
+  background: var(--mock-red);
 }
 .dot.yellow {
   background: #febc2e;
 }
 .dot.green {
-  background: #28c840;
+  background: var(--mock-green);
 }
 
 .urlBar {
@@ -373,9 +361,9 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 11.5px;
-  color: var(--red);
-  background: rgba(232, 162, 155, 0.16);
-  border: 1px solid rgba(232, 162, 155, 0.35);
+  color: var(--mock-red);
+  background: var(--mock-red-bg);
+  border: 1px solid var(--mock-red-border);
   padding: 5px 11px;
   border-radius: 999px;
 }
@@ -428,7 +416,7 @@
   position: relative;
   font-weight: 700;
   font-size: 13.5px;
-  color: var(--red);
+  color: var(--mock-red);
 }
 
 .strike::after {
@@ -438,7 +426,7 @@
   right: -2px;
   top: 50%;
   height: 2px;
-  background: var(--red);
+  background: var(--mock-red);
 }
 
 .flagNote {
@@ -446,8 +434,8 @@
   margin-top: 4px;
   font-size: 10.5px;
   font-weight: 700;
-  color: var(--red);
-  background: rgba(232, 162, 155, 0.16);
+  color: var(--mock-red);
+  background: var(--mock-red-bg);
   padding: 2px 7px;
   border-radius: 999px;
 }
@@ -463,13 +451,13 @@
 .nowLabel {
   font-size: 12px;
   font-weight: 600;
-  color: var(--green);
+  color: var(--mock-green);
 }
 
 .now {
   font-weight: 700;
   font-size: 14px;
-  color: var(--green);
+  color: var(--mock-green);
 }
 
 .total {
@@ -478,19 +466,19 @@
   align-items: center;
   margin: 0 -22px;
   padding: 16px 22px;
-  background: rgba(111, 207, 151, 0.1);
+  background: var(--mock-green-bg);
 }
 
 .totalLabel {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
-  color: var(--green);
+  color: var(--mock-green);
 }
 
 .totalValue {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 22px;
-  color: var(--green);
+  color: var(--mock-green);
 }

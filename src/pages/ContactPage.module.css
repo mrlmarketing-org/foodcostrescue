@@ -17,19 +17,6 @@
   }
 }
 
-.back {
-  display: block;
-  width: fit-content;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--ink-soft);
-  margin-bottom: 24px;
-}
-
-.back:hover {
-  color: var(--coral-deep);
-}
-
 .headline {
   font-size: clamp(28px, 4vw, 40px);
   margin-top: 10px;

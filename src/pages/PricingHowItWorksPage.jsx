@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
 import GetStartedButton from "../components/GetStartedButton.jsx";
@@ -261,10 +261,6 @@ export default function PricingHowItWorksPage() {
 
       <article className={`section ${styles.section}`}>
         <div className={`container ${styles.container}`}>
-          <Link to="/#pricing" className={styles.back}>
-            ← Back to pricing
-          </Link>
-
           <span className="eyebrow">{feeWalkthrough.eyebrow}</span>
           <h1 className={styles.title}>{feeWalkthrough.title}</h1>
           <p className={styles.sub}>{feeWalkthrough.sub}</p>

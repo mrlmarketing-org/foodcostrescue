@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo.jsx";
 import { contact } from "../data/content.js";
@@ -55,10 +54,6 @@ export default function ContactPage() {
       <section className={`section ${styles.section}`}>
         <div className={`container ${styles.grid}`}>
           <motion.div {...reveal(isMobile, { axis: "x", distance: -40, amount: 0.3 })}>
-            <Link to="/" className={styles.back}>
-              ← Back to home
-            </Link>
-
             <span className="eyebrow">{contact.kicker}</span>
             <h1 className={styles.headline}>{contact.headline}</h1>
             <p className={styles.body}>{contact.body}</p>
