@@ -483,7 +483,7 @@ export const contact = {
   address: "1000 Brickell Plaza, Unit 2708, Miami, FL 33130",
   socials: [
     { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/supplynegotiator" },
-    { label: "Facebook", icon: "facebook", href: "#" },
+    { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/profile.php?id=61591745824636" },
   ],
 };
 
