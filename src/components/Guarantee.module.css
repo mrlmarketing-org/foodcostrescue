@@ -63,7 +63,6 @@
   color: var(--ink-soft);
   font-size: 15px;
   line-height: 1.65;
-  max-width: 560px;
 }
 
 .link {

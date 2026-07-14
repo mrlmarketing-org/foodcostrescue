@@ -359,15 +359,15 @@ export const midCta = {
 // `fullBody` is the verbatim source text, shown on its own detail page.
 export const guarantee = {
   kicker: "Guarantee",
-  headline: "Three guarantees, so there's no downside to finding out.",
+  headline: "Every audit comes with three guarantees.",
   items: [
     {
       slug: "how-we-calculate-savings",
-      title: "How we calculate savings",
+      title: "Real savings, not market swings",
       summary:
-        "We never measure savings against your shifting invoice total. We lock them in the moment we find and fix a specific issue, so market swings never erase what we've already secured.",
+        "We only count savings from issues we actually fix — a credit or a corrected rate — never off a total bill that weather and fuel costs distort. Once secured, it holds.",
       image: "guaranteeSavings",
-      linkLabel: "Read the full breakdown",
+      linkLabel: "See how it's calculated",
       fullBody: [
         "Food prices fluctuate for many reasons beyond our control, such as weather, seasonality, fuel costs, or poor harvests. Therefore, we never measure savings by comparing your total monthly invoice amount, as that figure would be distorted by those factors. Instead, we determine the savings at the moment we identify and resolve a specific issue—whether through a direct credit issued by the distributor to offset a previous overcharge, or through a corrected rate for a specific product calculated based on projected volume for a set period. If prices subsequently change due to factors unrelated to the market, this does not alter the savings we have already identified and secured.",
       ],
@@ -376,7 +376,7 @@ export const guarantee = {
       slug: "yours-to-keep",
       title: "The findings are yours to keep",
       summary:
-        "Every audit ends in a full written report showing exactly where you're being overcharged and by how much — yours to keep, whether or not the distributor agrees to fix anything.",
+        "You walk away with a full written report: every overcharge, line by line, with the dollar figure attached. Yours whether the distributor fixes a thing or not.",
       image: "guaranteeKeep",
       linkLabel: "Read the full guarantee",
       fullBody: [
@@ -385,9 +385,9 @@ export const guarantee = {
     },
     {
       slug: "audit-fee-refund",
-      title: "Full refund if we don't find savings",
+      title: "No savings, full refund",
       summary:
-        "If we don't find and confirm real savings, your $150 audit fee is refunded in full. If we do, that same fee is credited against our % fee, so you're never paying for the same work twice.",
+        "If we don't confirm real savings, your $150 audit fee comes back in full. If we do, it's credited against our percentage — so the same work is never billed twice.",
       image: "guaranteeRefund",
       linkLabel: "Read the full guarantee",
       fullBody: [
@@ -464,7 +464,7 @@ export const faq = [
   },
   {
     q: "Is my invoice safe?",
-    a: "Yes. We sign an NDA before reviewing anything, access is limited to the team working on your account, and your documents are used only to benchmark your pricing — never shared or sold.",
+    a: "Yes. We execute a non-disclosure agreement before any review begins. Access is restricted to the team assigned to your account, and your documents are used solely to benchmark your pricing against market data. They are never shared with outside parties.",
   },
 ];
 
