@@ -5,7 +5,7 @@ import { useIsMobile } from "../hooks/useIsMobile.js";
 import { reveal } from "../lib/motionPresets.js";
 import styles from "./Pricing.module.css";
 
-const accents = ["gold", "mint", "coral"];
+const accents = ["coral", "mint", "sky"];
 
 export default function Pricing() {
   const isMobile = useIsMobile();
@@ -34,6 +34,7 @@ export default function Pricing() {
               className={`${styles.card} ${styles[accents[i % accents.length]]}`}
               {...reveal(isMobile, { distance: 30, duration: 0.5, delay: i * 0.1 })}
             >
+              <span className={styles.badge}>{row.badge}</span>
               <p className={styles.cardLabel}>{row.label}</p>
               <p className={styles.cardSub}>{row.sub}</p>
               <p className={styles.cardValue}>{row.value}</p>
@@ -41,6 +42,8 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+
+        <p className={styles.footnote}>{pricing.footnote}</p>
 
         <div className={styles.detailLinkRow}>
           <Link to="/pricing/how-it-works" className={styles.detailLink}>

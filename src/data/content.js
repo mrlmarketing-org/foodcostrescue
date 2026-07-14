@@ -53,15 +53,16 @@ export const trustStrip = [
 ];
 
 // About us combines the source brief's "Problem" and "Solution" sections.
-// `intro` + `bodyPreview` stay visible by default; `bodyMore` is revealed by
-// the "Read more" toggle. Text is verbatim from the brief (brand placeholder
-// swapped for the real name).
+// `intro`, `bodyPreview`, and `bodyEmphasis` stay visible by default;
+// `bodyMore` is revealed by the "Read more" toggle.
 export const aboutUs = {
   kicker: "About us",
-  headline: "We find where you're overpaying. You keep savings.",
-  intro: "Your distributor is counting on you not checking the invoice.",
+  headline: "Most restaurants overpay thousands a month and never notice.",
+  intro: "Your distributor is counting on you not to check the invoice.",
   bodyPreview:
-    "Big distributors process thousands of invoices a week. Prices creep between orders, agreed-upon contract rates quietly lapse; rebates go unapplied, and fuel or delivery surcharges get added that were never part of the deal. Any single overcharge looks small. Across a year of weekly deliveries, it adds up to thousands of dollars — money that's already left in your account.",
+    "A distributor runs thousands of invoices a week, and no one's checking yours. Prices creep, rebates vanish, surcharges appear that were never agreed to — small amounts on every order that quietly stack into real money.",
+  bodyEmphasis:
+    "We've spent years on the supply side of this business, so we know exactly where distributors pad the bill — and how to get it back for you.",
   bodyMore: [
     "You're running a restaurant, not auditing freight invoices. Nobody on staff has the time to compare every line item against what it should actually cost, or the leverage to call the distributor and get it fixed.",
     { bold: "We do that part for you." },
@@ -69,50 +70,73 @@ export const aboutUs = {
     "Once we know where the money is, we go back to the distributor on your behalf — or arm you with exactly what to say — to recover credits and refunds, and to correct pricing going forward, so the overcharges stop happening.",
   ],
   callout: {
-    body: "Most restaurants have no independent way to know whether their invoice pricing is fair — they only see one distributor's numbers. We compare real market benchmarks across many restaurants and suppliers, so you find out exactly what \"fair\" looks like before you pick up the phone.",
+    body: [
+      "Your distributor's invoice is the only pricing you ever see — so there's no way to tell what's fair. We put yours next to what other restaurants and suppliers actually pay, flag what's off, and ",
+      { text: "negotiate it back for you.", accent: true },
+    ],
   },
   checklist: [
-    "Benchmarked against real market data",
-    "No cost unless we find savings",
-    "You keep your distributor relationship",
-    "Built by restaurant supply-chain people",
+    "Checked against real distributor pricing",
+    "One small flat fee, refunded if we find nothing",
+    "You keep your distributor. We just fix the bill.",
+    "Built by people who've worked in restaurant supply",
   ],
   cta: "See how it works",
+  flagsKicker: "What we catch",
+  flagsLabel: "Four ways your bill gets padded",
   // The four things called out in bodyMore's "We flag overcharges, expired
   // contract rates, missing rebates, and fees that shouldn't be there" —
-  // pulled into their own visual row so it isn't buried inside prose.
+  // pulled into their own visual row so it isn't buried inside prose. Each
+  // `example` is an illustrative found-money case, not a real client figure.
   flags: [
     {
       icon: "trendUp",
       label: "Price overcharges",
       body: "Unit prices that quietly crept up between orders.",
+      example: {
+        caption: "Caught on a recent invoice",
+        detail: "billed $38.20 · fair $34.00",
+        amount: "+$4.20",
+      },
     },
     {
       icon: "contractMismatch",
       label: "Expired contract rates",
       body: "Billed at a rate that doesn't match what you signed.",
+      example: {
+        caption: "Caught on a recent invoice",
+        detail: "signed $0.92 · billed $1.07/lb",
+        amount: "+$0.15",
+      },
     },
     {
       icon: "percentFlag",
       label: "Missing rebates",
-      body: "Volume discounts you earned but never saw credited.",
+      body: "Volume discounts you earned but never got credited.",
+      example: {
+        caption: "Caught over the year",
+        detail: "3% rebate · $0 credited",
+        amount: "+$1,140",
+      },
     },
     {
       icon: "receipt",
       label: "Unauthorized fees",
-      body: "Surcharges added that were never part of the deal.",
+      body: "Surcharges that were never part of the deal.",
+      example: {
+        caption: "Caught on a recent invoice",
+        detail: "\"fuel surcharge\" · not in contract",
+        amount: "−$85",
+      },
     },
   ],
 };
 
-// Invoice mock shown right after About Us, styled as an app screenshot
-// (browser chrome + product UI). Every dollar figure here is a made-up
-// illustration of what a correction looks like — not a real client invoice
-// or a promised recovery amount. `image` keys reference assets/images.
+// Invoice mock embedded in the About Us section, styled as an app
+// screenshot (browser chrome + product UI). Every dollar figure here is a
+// made-up illustration of what a correction looks like — not a real client
+// invoice or a promised recovery amount. `image` keys reference assets/images.
 export const invoiceExample = {
-  kicker: "See it in action",
-  headline: "What a correction actually looks like.",
-  intro: "Every finding turns into a specific, line-by-line case — not just a number on a report.",
   windowUrl: `app.${brand.name}.com/audits`,
   cardTitle: "Audited line items",
   invoiceLabel: "Invoice #7734",
@@ -184,67 +208,46 @@ export const whatWeAudit = {
 
 export const howItWorks = {
   kicker: "How it works",
-  headline: "Five steps from invoice to recovered dollars.",
+  headline: "From invoice to recovered dollars.",
   steps: [
-    {
-      title: "Send us your invoices.",
-      body: "Share 2–3 months of recent invoices from your main distributor(s). Takes most owners a few minutes.",
-      image: "howSend",
-    },
-    {
-      title: "We benchmark and analyze.",
-      body: "We compare every line item against fair market pricing for your item mix, region, and order volume, and check your contract terms line by line.",
-      image: "howAnalyze",
-    },
-    {
-      title: "We show you where you're overpaying.",
-      body: "You get a clear report: what's overpriced, by how much, and what it's costing you per month and per year.",
-      image: "howOverpaying",
-    },
-    {
-      title: "We negotiate the recovery.",
-      body: "We contact the distributor on your behalf to recover credits or refunds, and to correct pricing going forward.",
-      image: "howNegotiate",
-    },
-    {
-      title: "Keep savings.",
-      body: "Corrected pricing stays in place, and we keep monitoring future invoices, so new overcharges get caught early.",
-      image: "howSavings",
-    },
+    { title: "Send your invoices", image: "howSend" },
+    { title: "We benchmark", image: "howAnalyze" },
+    { title: "See what's overpriced", image: "howOverpaying" },
+    { title: "We recover it", image: "howNegotiate" },
+    { title: "You keep it", image: "howSavings" },
   ],
 };
 
 export const pricing = {
   kicker: "Pricing",
-  headline: "A small audit fee to get started. The rest is only paid if we save you money.",
+  headline: "You pay for results, not promises.",
   intro: [
-    "We charge a flat, one-time fee to audit your invoices. That fee pays for a concrete deliverable: a full written report benchmarking every line item against fair market pricing and flagging every contract violation we find — yours to keep, whether the distributor agrees to fix anything. ",
-    {
-      text: "If our audit doesn't turn up any savings opportunities, we refund the fee in full — no questions asked.",
-      bold: true,
-    },
-    " If we do find savings — a credit or a corrected rate — that audit fee is credited against our % fee, so you're never paying twice. And the % fee only kicks in once we've actually recovered something for you, not just identified it.",
+    "The flat audit fee covers a full written report, benchmarking every line item against fair market pricing. If we find no savings, it's refunded in full. If we do, that fee is credited against our percentage — which applies only to what we actually recover for you.",
   ],
   rows: [
     {
-      label: "One-time invoice audit fee",
-      sub: "Refundable if we don't find any saving",
+      badge: "Upfront · Refundable",
+      label: "One-time audit fee",
+      sub: "Covers the full written report — yours to keep either way.",
       value: "$150",
-      valueSub: "flat, one time",
+      valueSub: "Flat. Back in full if we find nothing.",
     },
     {
-      label: "Hard credits or refunds",
-      sub: "Issued by the distributor for past overcharges",
+      badge: "Only if we recover",
+      label: "On credits & refunds",
+      sub: "Cash the distributor credits back for past overcharges.",
       value: "30%",
-      valueSub: "of the credited amount — audit fee credited against this first",
+      valueSub: "of what's credited back to you.",
     },
     {
-      label: "Locked go-forward rate correction",
-      sub: "Old price vs. new negotiated price × expected volume, fixed term",
+      badge: "Only if we recover",
+      label: "On locked-in savings",
+      sub: "Your corrected rate, held in place for a fixed term.",
       value: "25%",
-      valueSub: "of the calculated savings over a defined 12-month term — audit fee credited against this first",
+      valueSub: "of your savings over the next 12 months.",
     },
   ],
+  footnote: "Your $150 audit fee is credited against whichever percentage applies — you never pay it twice.",
   detailLinkLabel: "See how pricing is calculated →",
 };
 

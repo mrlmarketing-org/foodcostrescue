@@ -32,14 +32,43 @@
   gap: 6px;
 }
 
-.card.gold {
-  background: linear-gradient(160deg, var(--gold-tint), var(--paper) 70%);
+.card.coral {
+  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 55%);
+  border-color: var(--coral);
 }
 .card.mint {
-  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 70%);
+  background: linear-gradient(160deg, var(--mint-tint), var(--paper) 55%);
+  border-color: var(--mint);
 }
-.card.coral {
-  background: linear-gradient(160deg, var(--coral-tint), var(--paper) 70%);
+.card.sky {
+  background: linear-gradient(160deg, var(--sky-tint), var(--paper) 55%);
+  border-color: var(--sky);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.card.coral .badge {
+  background: var(--coral-tint);
+  color: var(--coral-deep);
+}
+.card.mint .badge {
+  background: var(--mint-tint);
+  color: var(--mint-deep);
+}
+.card.sky .badge {
+  background: var(--sky-tint);
+  color: var(--sky-deep);
 }
 
 .cardLabel {
@@ -58,13 +87,30 @@
   font-family: var(--font-display);
   font-size: 40px;
   font-weight: 700;
+}
+
+.card.coral .cardValue {
   color: var(--coral-deep);
+}
+.card.mint .cardValue {
+  color: var(--mint-deep);
+}
+.card.sky .cardValue {
+  color: var(--sky-deep);
 }
 
 .cardValueSub {
   font-size: 13px;
   color: var(--ink-soft);
   line-height: 1.5;
+}
+
+.footnote {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin: 0 auto 14px;
+  max-width: 520px;
 }
 
 .detailLinkRow {

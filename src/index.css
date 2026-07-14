@@ -25,6 +25,16 @@
   --gold-deep: #263140;
   --gold-tint: #e7eaee;
 
+  /* Alert — Flag Red, for overcharge/warning indicators */
+  --red: #e8a29b;
+  --red-deep: #b3392f;
+  --red-tint: #fbe9e7;
+
+  /* Positive — Recovered Green, for savings/corrected indicators */
+  --green: #6fcf97;
+  --green-deep: #1f8a4c;
+  --green-tint: #e5f8ec;
+
   --ink: #334155;
   --ink-soft: #5b6b7c;
   --ink-faint: #8d99a6;
