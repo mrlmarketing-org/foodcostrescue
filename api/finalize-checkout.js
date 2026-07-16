@@ -47,10 +47,8 @@ export default async function handler(req, res) {
     };
     const files = parseFilesFromMetadata(m);
 
-    // onboarding@resend.dev works without a verified sending domain — swap
-    // for a real @supplynegotiator.com address once one is verified in Resend.
     await resend.emails.send({
-      from: "supplynegotiator <onboarding@resend.dev>",
+      from: "supplynegotiator <admin@supplynegotiator.com>",
       to: process.env.RESEND_TO_EMAIL,
       replyTo: form.email,
       subject: `New paid audit request — ${form.businessName}`,
