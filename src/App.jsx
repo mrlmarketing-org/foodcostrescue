@@ -1,7 +1,8 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import PageLoader from "./components/PageLoader.jsx";
 import { terms, privacy } from "./data/legal.js";
 
 // Only the homepage loads eagerly (it's the entry point almost every visitor
@@ -33,6 +34,18 @@ function App() {
         <Route path="/terms" element={<LegalPage doc={terms} />} />
         <Route path="/privacy" element={<LegalPage doc={privacy} />} />
       </Route>
+
+      {/* Standalone link for clients: just the get-started form + Stripe
+          checkout, no Navbar/Footer. Shares the same page/logic as
+          /get-started above — only the chrome around it differs. */}
+      <Route
+        path="/invoice"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <GetStartedPage />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 }
